@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar/NavBar.js';
 
 class App extends Component {
   constructor() {
@@ -17,8 +18,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>SWAPI Box</h1>
+          <NavBar />
         </header>
-
       </div>
     );
   }
