@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from '../Card/Card.js'
+import Card from '../Card/Card.js';
+import PropTypes from 'prop-types';
+
 const CardContainer = ({ display, people }) => {
-	console.log(people)
 	const cards = Object.keys(people).map(person => {
 		return <Card
 			person={people[person]}
@@ -25,4 +26,9 @@ const CardContainer = ({ display, people }) => {
   }
 }
 
-export default CardContainer
+CardContainer.propTypes = {
+	display: PropTypes.array.isRequired,
+	people: PropTypes.object.isRequired
+}; 
+
+export default CardContainer;

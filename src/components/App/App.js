@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       people: {},
+      planets: {},
       filmText: '',
       selected: '',
       display: []
@@ -26,10 +27,17 @@ class App extends Component {
     })
   }
 
-   getPeople = async (buttonName) => {
-    // await Cleaner.formatPeople()
+  // getDisplay = async (buttonName) => {
+  //   const funcToRun = //find the method on cleaner associated with buttonName
+  //   this.setState({display: Cleaner.funcToRun})
+  // }
+
+  getPeople = async (buttonName) => {
     await this.setState({ people: await Cleaner.formatPeople() })
-    // Promise.all()
+  }
+
+  getPlanets = async (buttonName) => {
+    await this.setState({ planets: await Cleaner.formatPlanets() })
   }
 
   async formatFilmText(data) {

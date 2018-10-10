@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NavBar = ({ selected, getPeople }) => {
 
@@ -16,6 +17,12 @@ const NavBar = ({ selected, getPeople }) => {
     </div>
   )
   
+}
+
+NavBar.propTypes = {
+	selected: PropTypes.string.isRequired,
+	getPeople: PropTypes.func.isRequired
+
 }
 
 export default NavBar
