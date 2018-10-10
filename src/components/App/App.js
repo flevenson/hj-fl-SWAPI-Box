@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      people: [],
+      people: {},
       filmText: '',
       selected: '',
       display: []
@@ -26,8 +26,10 @@ class App extends Component {
     })
   }
 
-  async getPeople() {
-    await Cleaner.formatPeople()
+   getPeople = async (buttonName) => {
+    // await Cleaner.formatPeople()
+    await this.setState({ people: await Cleaner.formatPeople() })
+    // Promise.all()
   }
 
   async formatFilmText(data) {

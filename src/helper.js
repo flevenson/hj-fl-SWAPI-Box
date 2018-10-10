@@ -3,6 +3,6 @@ export const formatPeople = async () => {
     	const response = await fetch(starWarsApi);
     	const data = await response.json();
 
-		return {...data}
+		return {...data.results}
 	}
  
