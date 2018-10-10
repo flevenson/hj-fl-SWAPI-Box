@@ -11,14 +11,44 @@ class App extends Component {
       people: [],
       planets: [],
       vehicles: [],
+      favorites: [],
+      filmText: '',
       selected: '',
       display: []
+
     }
   }
 
+  async componentDidMount() {
+    const starWarsApi = 'https://swapi.co/api/';
+    const response = await fetch(starWarsApi);
+    const data = await response.json();
+    const filmText = await this.formatFilmText(data)
+    const people = await this.formatPeople(data);
+    this.setState({
+      people: people.results,
+      filmText: filmText,
+    })
+  }
+
+  async formatPeople(data) {
+    const peopleResponse = await fetch(data.people);
+    const peopleData = await peopleResponse.json();
+    return {...peopleData}
+  }
+
+  async formatFilmText(data) {
+    const randomNumber = await Math.round(Math.random() * 6);
+    console.log(randomNumber);
+    const filmsResponse = await fetch(data.films);
+    const films = await filmsResponse.json();
+    const filmText = await films.results[randomNumber].opening_crawl
+
+    return filmText
+  }
 
   render() {
-    const { people, planets, vehicles, selected, display } = this.state;
+    const { people, planets, vehicles, selected, filmText, display } = this.state;
 
     return (
       <div className="app">
@@ -27,10 +57,10 @@ class App extends Component {
           <NavBar />
         </header>
         <aside className="app-aside">
-          <SideText />
+          <SideText filmText={ filmText } />
         </aside>
         <main>
-          <CardContainer display={ display }/>
+          <CardContainer display={ display } people={ people } />
         </main>
       </div>
     );
