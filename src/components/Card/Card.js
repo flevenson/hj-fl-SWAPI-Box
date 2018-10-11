@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ person }) => {
-	const { name, gender, height } = person;
+const Card = ({ name, gender, height }) => {
+	// const { name, gender, height } = person;
 
 	  return (
 	    <div>
@@ -15,7 +15,9 @@ const Card = ({ person }) => {
 	}
 
 Card.propTypes = {
-	person: PropTypes.object.isRequired
+	name: PropTypes.string,
+	gender: PropTypes.string,
+	height: PropTypes.number
 }
 
 export default Card; 

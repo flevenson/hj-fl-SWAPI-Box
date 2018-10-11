@@ -27,7 +27,7 @@ const CardContainer = ({ display, people }) => {
 }
 
 CardContainer.propTypes = {
-	display: PropTypes.array.isRequired,
+	display: PropTypes.array,
 	people: PropTypes.object.isRequired
 }; 
 

@@ -20,7 +20,7 @@ const NavBar = ({ selected, getPeople }) => {
 }
 
 NavBar.propTypes = {
-	selected: PropTypes.string.isRequired,
+	selected: PropTypes.string,
 	getPeople: PropTypes.func.isRequired
 
 }
