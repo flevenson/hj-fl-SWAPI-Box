@@ -10,10 +10,11 @@ class App extends Component {
     super();
     this.state = {
       people: {},
-      // planets: {},
+      planets: {},
+      vehicles: {},
       filmText: '',
       selected: '',
-      display: []
+      display: {}
     }
   }
 
@@ -27,18 +28,14 @@ class App extends Component {
     })
   }
 
-  // getDisplay = async (buttonName) => {
-  //   const funcToRun = //find the method on cleaner associated with buttonName
-  //   this.setState({display: Cleaner.funcToRun})
-  // }
-
-  getPeople = async (buttonName) => {
-    await this.setState({ people: await Cleaner.fetchPeople() })
+  getData = async (buttonName) => {
+    await this.setState({ display: await Cleaner.fetchData(buttonName) })
+    await this.setState({ [buttonName]: this.state.display, selected: buttonName })
   }
 
-  // getPlanets = async (buttonName) => {
-  //   await this.setState({ planets: await Cleaner.formatPlanets() })
-  // }
+  addToLocalStorage(buttonName) {
+    localStorage.setItem((`${buttonName}`), JSON.stringify(this.state[buttonName]))
+  }
 
   async formatFilmText(data) {
     const randomNumber = await Math.round(Math.random() * 6);
@@ -48,19 +45,25 @@ class App extends Component {
   }
 
   render() {
-    const { people, selected, filmText, display } = this.state;
+    const { people, selected, filmText, display, planets, vehicles } = this.state;
 
     return (
       <div className="app">
         <header className="app-header">
           <h1 className="site-heading">SWAPI Box</h1>
-          <NavBar getPeople={ this.getPeople } />
+          <NavBar getData={ this.getData } />
         </header>
         <aside className="app-aside">
           <SideText filmText={ filmText } />
         </aside>
         <main>
-          <CardContainer display={ display } people={ people } />
+          <CardContainer 
+            display={ display } 
+            people={ people } 
+            vehicles={ vehicles } 
+            planets={ planets }
+            selected={ selected }
+          />
         </main>
       </div>
     );
