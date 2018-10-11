@@ -1,11 +1,12 @@
 import React from 'react';
 import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
+import './CardContainer.css';
 
 const CardContainer = ({ display, people }) => {
 	const cards = Object.keys(people).map(person => {
 		return <Card
-			person={people[person]}
+			{...people[person]}
 			key={person}
 		/>
 
@@ -19,7 +20,7 @@ const CardContainer = ({ display, people }) => {
       )
   }	else {
   	return (
-  	  <div>
+  	  <div className='card-container'>
   	  	{ cards }
   	  </div>
   	)

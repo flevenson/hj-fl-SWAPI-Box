@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       people: {},
-      planets: {},
+      // planets: {},
       filmText: '',
       selected: '',
       display: []
@@ -36,9 +36,9 @@ class App extends Component {
     await this.setState({ people: await Cleaner.formatPeople() })
   }
 
-  getPlanets = async (buttonName) => {
-    await this.setState({ planets: await Cleaner.formatPlanets() })
-  }
+  // getPlanets = async (buttonName) => {
+  //   await this.setState({ planets: await Cleaner.formatPlanets() })
+  // }
 
   async formatFilmText(data) {
     const randomNumber = await Math.round(Math.random() * 6);

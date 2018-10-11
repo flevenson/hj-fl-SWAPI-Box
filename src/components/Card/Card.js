@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Card.css';
+import Star from '../../images/star.svg'
 
-const Card = ({ name, gender, height }) => {
-	// const { name, gender, height } = person;
+const Card = ({ name, gender, height, birth_year }) => {
 
 	  return (
-	    <div>
-	      <p>{name}</p>
-	      <p>{gender}</p>
-	      <p>{height}</p>
+	    <div className='card'>
+	      <h1>{name}</h1>
+	      <p>Gender: {gender}</p>
+	      <p>Species: {height}cm</p>
+	      <p>Birth Year: {birth_year}</p>
+	      <p>Homeworld: Tatooine</p>
+	      <img class='favorite-button' src={Star} alt='favorite button' />
 	    </div>
 	  )
-
 	}
 
 Card.propTypes = {
