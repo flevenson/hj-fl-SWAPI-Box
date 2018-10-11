@@ -33,7 +33,7 @@ class App extends Component {
   // }
 
   getPeople = async (buttonName) => {
-    await this.setState({ people: await Cleaner.formatPeople() })
+    await this.setState({ people: await Cleaner.fetchPeople() })
   }
 
   // getPlanets = async (buttonName) => {
