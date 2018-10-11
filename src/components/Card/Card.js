@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import Star from '../../images/star.svg'
 
-const Card = ({ data }) => {
+const Card = ({ data, selected }) => {
 
-		 if (data.height) {
+		 if (selected === 'people') {
 
 	  return (
 	    <div className='card'>
@@ -17,7 +17,7 @@ const Card = ({ data }) => {
 	      <img class='favorite-button' src={Star} alt='favorite button' />
 	    </div>
 	   )
-	 } else if (data.rotational_period) {
+	 } else if (selected === 'planets') {
 	 	return (
 	 		<div className='card'>
 	 			<h1>{data.name}</h1>
@@ -28,7 +28,7 @@ const Card = ({ data }) => {
 	      		<img class='favorite-button' src={Star} alt='favorite button' />
 	 		</div>
 	 	)
-	 } else if (data.model) {
+	 } else if (selected === 'vehicles') {
 	 	return (
 	 		<div className='card'>
 	 			<h1>{data.name}</h1>
@@ -39,6 +39,11 @@ const Card = ({ data }) => {
 	      		<img class='favorite-button' src={Star} alt='favorite button' />	 			
 	 		</div>
 	 	)
+	  } else {
+	  	return (
+	  		<div>
+	  		</div>
+	  		) 
 	  }		
    }
 

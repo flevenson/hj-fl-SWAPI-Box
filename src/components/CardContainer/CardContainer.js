@@ -3,11 +3,12 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import './CardContainer.css';
 
-const CardContainer = ({ display }) => {
+const CardContainer = ({ display, selected }) => {
 	const cards = Object.keys(display).map(element => {
 		return <Card
 			data={display[element]}
 			key={element}
+      selected={selected}
 		/>
 
 	})
