@@ -10,10 +10,9 @@ const Card = ({ data, selected }) => {
 	  return (
 	    <div className='card'>
 	      <h1>{data.name}</h1>
-	      <p>Gender: {data.gender}</p>
-	      <p>Species: {data.height}cm</p>
-	      <p>Birth Year: {data.birth_year}</p>
-	      <p>Homeworld: Tatooine</p>
+        <p>Homeworld: {data.homeworld}</p>
+        <p>Species: {data.species}</p>
+	      <p>Population: {data.population}</p>
 	      <img class='favorite-button' src={Star} alt='favorite button' />
 	    </div>
 	   )
@@ -32,10 +31,10 @@ const Card = ({ data, selected }) => {
 	 	return (
 	 		<div className='card'>
 	 			<h1>{data.name}</h1>
-	 			<p>{data.cost_in_credits}</p>
-	 			<p>{data.cargo_capacity}</p>
-	 			<p>{data.vehicle_class}</p>
-	 			<p>{data.max_atmosphering_speed}</p>
+	 			<p>Model: {data.model}</p>
+	 			<p>Class: {data.vehicle_class}</p>
+	 			<p>Number of Passengers: {data.passengers}</p>
+	 			<p>Max Speed: {data.max_atmosphering_speed}</p>
 	      		<img class='favorite-button' src={Star} alt='favorite button' />	 			
 	 		</div>
 	 	)
