@@ -3,16 +3,16 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import './CardContainer.css';
 
-const CardContainer = ({ display, people }) => {
-	const cards = Object.keys(people).map(person => {
+const CardContainer = ({ display }) => {
+	const cards = Object.keys(display).map(element => {
 		return <Card
-			{...people[person]}
-			key={person}
+			{...display[element]}
+			key={element}
 		/>
 
 	})
 
-  if(!Object.keys(people).length) {
+  if(!Object.keys(display).length) {
     return (
       <div>
         Welcome To SWAPI BOX
@@ -28,8 +28,7 @@ const CardContainer = ({ display, people }) => {
 }
 
 CardContainer.propTypes = {
-	display: PropTypes.array,
-	people: PropTypes.object.isRequired
+	display: PropTypes.object,
 }; 
 
 export default CardContainer;

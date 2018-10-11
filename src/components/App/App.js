@@ -10,10 +10,11 @@ class App extends Component {
     super();
     this.state = {
       people: {},
-      // planets: {},
+      planets: {},
+      vehicles: {},
       filmText: '',
       selected: '',
-      display: []
+      display: {}
     }
   }
 
@@ -32,8 +33,8 @@ class App extends Component {
   //   this.setState({display: Cleaner.funcToRun})
   // }
 
-  getPeople = async (buttonName) => {
-    await this.setState({ people: await Cleaner.fetchPeople() })
+  getData = async (buttonName) => {
+    await this.setState({ display: await Cleaner.fetchData(buttonName) })
   }
 
   // getPlanets = async (buttonName) => {
@@ -54,7 +55,7 @@ class App extends Component {
       <div className="app">
         <header className="app-header">
           <h1 className="site-heading">SWAPI Box</h1>
-          <NavBar getPeople={ this.getPeople } />
+          <NavBar getData={ this.getData } />
         </header>
         <aside className="app-aside">
           <SideText filmText={ filmText } />
