@@ -6,7 +6,7 @@ import './CardContainer.css';
 const CardContainer = ({ display }) => {
 	const cards = Object.keys(display).map(element => {
 		return <Card
-			{...display[element]}
+			data={display[element]}
 			key={element}
 		/>
 
