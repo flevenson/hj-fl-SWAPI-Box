@@ -5,28 +5,29 @@ import NavBar from './NavBar.js';
 
 describe('NavBar', () => {
 	let wrapper;
-	// let mockFunction;
+	let mockFunction;
 
-	// beforeEach(() => {
-	//   mockFunction = jest.fn().mockImplementation( await buttonName => {
-	//   	() => Promise.resolve({results: []})
-	//   })
-	//   wrapper = shallow(<NavBar getPeople={mockFunction}/>);		
-	// })
+	beforeEach(() => {
+	  mockFunction = jest.fn().mockImplementation( buttonName => {
+	  	() => Promise.resolve({results: []})
+	  })
+	  wrapper = shallow(<NavBar getData={mockFunction} />);		
+	})
 
 	it('should match snapshot', () => {
 	  expect(wrapper).toMatchSnapshot();
 	})
 
-	// it('should call getPeople with the right parameters after a click', async () => {
-	//   const mockEvent = {
-	//   	target: {
-	//   		getAttribute: await () => 'people'
-	//   	}
-	//   }
-
-	//   const expected = 'people'
-	//   wrapper.simulate('click', mockEvent);
-	//   expect(wrapper.getPeople).toHaveBeenCalledWith(expected)
-	// })
+	it('should call handleClick when a button is clicked', () => {
+	  const mockEvent = {
+	  	target: {
+	  		getAttribute: () => 'people'
+	  	}
+	  }
+	  const button = wrapper.find('.people')
+	  const expected = 'people'
+	  console.log(button)
+	  button.simulate('click', mockEvent);
+	  expect(wrapper.handleClick).toHaveBeenCalled()
+	})
 })

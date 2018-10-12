@@ -4,7 +4,7 @@ exports[`NavBar should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
-    getPeople={[MockFunction]}
+    getData={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -21,26 +21,27 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <button
-          className="people-button"
+          className="people"
           name="people"
           onClick={[Function]}
         >
           People
         </button>,
         <button
-          className="planets-button"
+          className="planets"
           name="planets"
+          onClick={[Function]}
         >
           Planets
         </button>,
         <button
-          className="vehicles-button"
+          className="vehicles"
           name="vehicles"
+          onClick={[Function]}
         >
           Vehicles
         </button>,
         <button
-          className="favorites-button"
           name="favorites"
         >
           Favorites
@@ -56,7 +57,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "People",
-          "className": "people-button",
+          "className": "people",
           "name": "people",
           "onClick": [Function],
         },
@@ -70,8 +71,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Planets",
-          "className": "planets-button",
+          "className": "planets",
           "name": "planets",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Planets",
@@ -83,8 +85,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Vehicles",
-          "className": "vehicles-button",
+          "className": "vehicles",
           "name": "vehicles",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Vehicles",
@@ -96,7 +99,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Favorites",
-          "className": "favorites-button",
+          "className": undefined,
           "name": "favorites",
         },
         "ref": null,
@@ -114,26 +117,27 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <button
-            className="people-button"
+            className="people"
             name="people"
             onClick={[Function]}
           >
             People
           </button>,
           <button
-            className="planets-button"
+            className="planets"
             name="planets"
+            onClick={[Function]}
           >
             Planets
           </button>,
           <button
-            className="vehicles-button"
+            className="vehicles"
             name="vehicles"
+            onClick={[Function]}
           >
             Vehicles
           </button>,
           <button
-            className="favorites-button"
             name="favorites"
           >
             Favorites
@@ -149,7 +153,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "People",
-            "className": "people-button",
+            "className": "people",
             "name": "people",
             "onClick": [Function],
           },
@@ -163,8 +167,9 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Planets",
-            "className": "planets-button",
+            "className": "planets",
             "name": "planets",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Planets",
@@ -176,8 +181,9 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Vehicles",
-            "className": "vehicles-button",
+            "className": "vehicles",
             "name": "vehicles",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Vehicles",
@@ -189,7 +195,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Favorites",
-            "className": "favorites-button",
+            "className": undefined,
             "name": "favorites",
           },
           "ref": null,
