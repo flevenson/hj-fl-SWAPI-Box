@@ -12,7 +12,7 @@ class App extends Component {
       people: {},
       planets: {},
       vehicles: {},
-      filmText: '',
+      filmText: {},
       selected: '',
       display: {}
     }
@@ -40,8 +40,14 @@ class App extends Component {
   async formatFilmText(data) {
     const randomNumber = await Math.round(Math.random() * 6);
     const filmText = await data.results[randomNumber].opening_crawl
-
-    return filmText
+    const filmTitle = await data.results[randomNumber].title
+    const episode = await data.results[randomNumber].episode_id
+    const formattedFilm = await {
+      text: filmText,
+      title: filmTitle,
+      episode: episode
+    }  
+    return formattedFilm
   }
 
   render() {
