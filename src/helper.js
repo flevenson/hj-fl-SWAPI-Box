@@ -47,5 +47,6 @@ export const fetchData = async (buttonName) => {
     const speciesAPI = person.species;
     const speciesResponse = await fetch(speciesAPI);
     const speciesData = await speciesResponse.json();
+
     return speciesData.name
   }

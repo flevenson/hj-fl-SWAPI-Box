@@ -6,3 +6,11 @@ button {
   font-family: 'Fugaz One', cursive;
   color: #4A3934;
 }
+
+.selected {
+  color: #FEFFC0;
+}
+
+.not-selected {
+  color: #4A3934;
+}
