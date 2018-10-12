@@ -51,7 +51,7 @@ class App extends Component {
       <div className="app">
         <header className="app-header">
           <h1 className="site-heading">SWAPI Box</h1>
-          <NavBar getData={ this.getData } />
+          <NavBar getData={ this.getData } selected={ selected }/>
         </header>
         <aside className="app-aside">
           <SideText filmText={ filmText } />
