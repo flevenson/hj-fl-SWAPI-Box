@@ -26,49 +26,9 @@ ShallowWrapper {
     "instance": null,
     "key": undefined,
     "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <p />,
-        <p />,
-        <p />,
-      ],
-    },
+    "props": Object {},
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "p",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "p",
-      },
-    ],
+    "rendered": null,
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -76,49 +36,9 @@ ShallowWrapper {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <p />,
-          <p />,
-          <p />,
-        ],
-      },
+      "props": Object {},
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "p",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "p",
-        },
-      ],
+      "rendered": null,
       "type": "div",
     },
   ],

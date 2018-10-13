@@ -38,6 +38,11 @@ class App extends Component {
     localStorage.setItem((`${buttonName}`), JSON.stringify(this.state[buttonName]))
   }
 
+  handleNavClick = (event) => {
+    let buttonName = event.target.getAttribute('name')
+    this.getData(buttonName)
+  }
+
   async formatFilmText(data) {
     const randomNumber = await Math.round(Math.random() * 6);
     const filmText = await data.results[randomNumber].opening_crawl
@@ -58,10 +63,16 @@ class App extends Component {
       <div className="app">
         <header className="app-header">
           <h1 className="site-heading">SWAPI Box</h1>
-          <NavBar getData={ this.getData } selected={ selected }/>
+          <NavBar 
+            getData={ this.getData } 
+            selected={ selected } 
+            handleNavClick={ this.handleNavClick }
+          />
         </header>
         <aside className="app-aside">
-          <SideText filmText={ filmText } />
+          <SideText 
+            filmText={ filmText } 
+          />
         </aside>
         <main>
           <CardContainer 
