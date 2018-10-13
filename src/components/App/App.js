@@ -29,8 +29,9 @@ class App extends Component {
   }
 
   getData = async (buttonName) => {
-    await this.setState({ display: await Cleaner.fetchData(buttonName) })
-    await this.setState({ [buttonName]: this.state.display, selected: buttonName })
+    await this.setState({selected: buttonName});
+    await this.setState({ display: await Cleaner.fetchData(buttonName) });
+    await this.setState({ [buttonName]: this.state.display});
   }
 
   addToLocalStorage(buttonName) {
