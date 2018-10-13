@@ -20,10 +20,10 @@ const Card = ({ data, selected }) => {
 	 	return (
 	 		<div className='card'>
 	 			<h1>{data.name}</h1>
-	 			<p>Rotational Period: {data.rotational_period}</p>
-	 			<p>Climate: {data.climate}</p>
-	 			<p>Terrain: {data.terrain}</p>
-	 			<p>Population: {data.population}</p>
+        <p>Climate: {data.climate}</p>
+        <p>Terrain: {data.terrain}</p>
+        <p>Population: {data.population}</p>
+	 			<p>Residents: {data.residents}</p>
 	      		<img class='favorite-button' src={Star} alt='favorite button' />
 	 		</div>
 	 	)
