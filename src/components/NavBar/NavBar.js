@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './NavBar.css'
 
-const NavBar = ({ selected, getData, handleNavClick }) => {
+const NavBar = ({ selected, handleNavClick }) => {
 
 	
   
@@ -26,16 +26,19 @@ const NavBar = ({ selected, getData, handleNavClick }) => {
       	onClick={handleNavClick}>
       	Vehicles
       </button>
-      <button className={selected} name='favorites'>Favorites</button>
+      <button 
+      	className={selected} 
+      	name='favorites'>
+      	Favorites
+      </button>
     </div>
   )
   
 }
 
 NavBar.propTypes = {
-	selected: PropTypes.string,
-	getPeople: PropTypes.func
-
+	selected: PropTypes.string.isRequired,
+	handleNavClick: PropTypes.func.isRequired
 }
 
 export default NavBar

@@ -5,6 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
     handleNavClick={[MockFunction]}
+    selected=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -42,6 +43,7 @@ ShallowWrapper {
           Vehicles
         </button>,
         <button
+          className=""
           name="favorites"
         >
           Favorites
@@ -99,7 +101,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Favorites",
-          "className": undefined,
+          "className": "",
           "name": "favorites",
         },
         "ref": null,
@@ -138,6 +140,7 @@ ShallowWrapper {
             Vehicles
           </button>,
           <button
+            className=""
             name="favorites"
           >
             Favorites
@@ -195,7 +198,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Favorites",
-            "className": undefined,
+            "className": "",
             "name": "favorites",
           },
           "ref": null,

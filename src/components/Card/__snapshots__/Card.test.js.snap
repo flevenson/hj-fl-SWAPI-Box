@@ -4,15 +4,8 @@ exports[`Card should match a snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Card
-    person={
-      Array [
-        Object {
-          "gender": "male",
-          "height": 165,
-          "name": "Joe",
-        },
-      ]
-    }
+    data={Array []}
+    selected=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -39,6 +32,854 @@ ShallowWrapper {
       "props": Object {},
       "ref": null,
       "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Card should match the snapshot after people has been selected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    data={
+      Array [
+        Object {
+          "homeworld": "Earth",
+          "name": "Joe",
+          "population": 5,
+          "species": "human",
+        },
+      ]
+    }
+    selected="people"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1 />,
+        <p>
+          Homeworld: 
+        </p>,
+        <p>
+          Species: 
+        </p>,
+        <p>
+          Population: 
+        </p>,
+        <img
+          alt="favorite button"
+          class="favorite-button"
+          src="star.svg"
+        />,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Homeworld: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Homeworld: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Species: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Species: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Population: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Population: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "favorite button",
+          "class": "favorite-button",
+          "src": "star.svg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1 />,
+          <p>
+            Homeworld: 
+          </p>,
+          <p>
+            Species: 
+          </p>,
+          <p>
+            Population: 
+          </p>,
+          <img
+            alt="favorite button"
+            class="favorite-button"
+            src="star.svg"
+          />,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Homeworld: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Homeworld: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Species: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Species: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Population: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Population: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "favorite button",
+            "class": "favorite-button",
+            "src": "star.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Card should match the snapshot after planets has been selected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    data={
+      Array [
+        Object {
+          "climate": "Hot",
+          "name": "Earth",
+          "population": 5,
+          "residents": Array [
+            "Luke",
+            "Yoda",
+            "Annikan",
+          ],
+          "terrain": "mountainous",
+        },
+      ]
+    }
+    selected="planets"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1 />,
+        <p>
+          Climate: 
+        </p>,
+        <p>
+          Terrain: 
+        </p>,
+        <p>
+          Population: 
+        </p>,
+        <p>
+          Residents: 
+        </p>,
+        <img
+          alt="favorite button"
+          class="favorite-button"
+          src="star.svg"
+        />,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Climate: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Climate: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Terrain: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Terrain: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Population: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Population: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Residents: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Residents: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "favorite button",
+          "class": "favorite-button",
+          "src": "star.svg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1 />,
+          <p>
+            Climate: 
+          </p>,
+          <p>
+            Terrain: 
+          </p>,
+          <p>
+            Population: 
+          </p>,
+          <p>
+            Residents: 
+          </p>,
+          <img
+            alt="favorite button"
+            class="favorite-button"
+            src="star.svg"
+          />,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Climate: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Climate: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Terrain: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Terrain: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Population: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Population: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Residents: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Residents: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "favorite button",
+            "class": "favorite-button",
+            "src": "star.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Card should match the snapshot after vehicles has been selected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    data={
+      Array [
+        Object {
+          "class": "Rocket",
+          "max_atmosphering_speed": 500,
+          "model": "3549",
+          "name": "Spaceship",
+          "passengers": 5,
+        },
+      ]
+    }
+    selected="vehicles"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1 />,
+        <p>
+          Model: 
+        </p>,
+        <p>
+          Class: 
+        </p>,
+        <p>
+          Number of Passengers: 
+        </p>,
+        <p>
+          Max Speed: 
+        </p>,
+        <img
+          alt="favorite button"
+          class="favorite-button"
+          src="star.svg"
+        />,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Model: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Model: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Class: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Class: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Number of Passengers: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Number of Passengers: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Max Speed: ",
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Max Speed: ",
+          undefined,
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "favorite button",
+          "class": "favorite-button",
+          "src": "star.svg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1 />,
+          <p>
+            Model: 
+          </p>,
+          <p>
+            Class: 
+          </p>,
+          <p>
+            Number of Passengers: 
+          </p>,
+          <p>
+            Max Speed: 
+          </p>,
+          <img
+            alt="favorite button"
+            class="favorite-button"
+            src="star.svg"
+          />,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Model: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Model: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Class: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Class: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Number of Passengers: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Number of Passengers: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Max Speed: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Max Speed: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "favorite button",
+            "class": "favorite-button",
+            "src": "star.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+      ],
       "type": "div",
     },
   ],

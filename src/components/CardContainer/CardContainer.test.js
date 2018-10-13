@@ -11,7 +11,11 @@ describe('CardContainer', () => {
 			gender: 'male',
 			height: 165 
 		}
-		const wrapper = shallow(<CardContainer people={mockData}/>);
+		const wrapper = shallow(<CardContainer 
+									people={mockData} 
+									display={{}} 
+									selected={''}
+								/>);
 		expect(wrapper).toMatchSnapshot()
 	})
 })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import NavBar from './NavBar.js';
 
@@ -9,7 +9,10 @@ describe('NavBar', () => {
 
 	beforeEach(() => {
 	  mockFunction = jest.fn()
-	  wrapper = shallow(<NavBar handleNavClick={mockFunction} />);		
+	  wrapper = shallow(<NavBar 
+	  	handleNavClick={mockFunction} 
+	  	selected={''} 
+	  />);		
 	})
 
 	it('should match snapshot', () => {
@@ -29,5 +32,13 @@ describe('NavBar', () => {
 	it('should call handleClick when vehicles is clicked', () => {
 	  wrapper.find('.vehicles').simulate('click')
 	  expect(mockFunction).toBeCalled()
-	})	
+	})
+
+	// it('should only allow one button to be selected', () => {
+	//   wrapper = mount(<NavBar handleNavClick={mockFunction} selected={''} /> );
+	//   let selected = wrapper.find('.selected')
+	//   wrapper.find('.people').simulate('click')
+	//   selected = wrapper.find('.selected')
+	//   console.log(selected)
+	// })	
 })

@@ -47,9 +47,8 @@ const Card = ({ data, selected }) => {
    }
 
 Card.propTypes = {
-	name: PropTypes.string,
-	gender: PropTypes.string,
-	height: PropTypes.number
+	data: PropTypes.array.isRequired,
+	selected: PropTypes.string.isRequired
 }
 
 export default Card; 

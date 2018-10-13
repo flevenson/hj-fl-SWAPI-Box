@@ -4,6 +4,7 @@ exports[`CardContainer should match a snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CardContainer
+    display={Object {}}
     people={
       Object {
         "gender": "male",
@@ -11,6 +12,7 @@ ShallowWrapper {
         "name": "Joe",
       }
     }
+    selected=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -25,54 +27,10 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        <Card
-          person="Joe"
-        />,
-        <Card
-          person="male"
-        />,
-        <Card
-          person={165}
-        />,
-      ],
+      "children": "Welcome To SWAPI BOX",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": "name",
-        "nodeType": "function",
-        "props": Object {
-          "person": "Joe",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "gender",
-        "nodeType": "function",
-        "props": Object {
-          "person": "male",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "height",
-        "nodeType": "function",
-        "props": Object {
-          "person": 165,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
+    "rendered": "Welcome To SWAPI BOX",
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -81,54 +39,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [
-          <Card
-            person="Joe"
-          />,
-          <Card
-            person="male"
-          />,
-          <Card
-            person={165}
-          />,
-        ],
+        "children": "Welcome To SWAPI BOX",
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": "name",
-          "nodeType": "function",
-          "props": Object {
-            "person": "Joe",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "gender",
-          "nodeType": "function",
-          "props": Object {
-            "person": "male",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "height",
-          "nodeType": "function",
-          "props": Object {
-            "person": 165,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
+      "rendered": "Welcome To SWAPI BOX",
       "type": "div",
     },
   ],
