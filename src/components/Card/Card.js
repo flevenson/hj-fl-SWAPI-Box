@@ -23,7 +23,7 @@ const Card = ({ data, selected }) => {
 	 			<p>Rotational Period: {data.rotational_period}</p>
 	 			<p>Climate: {data.climate}</p>
 	 			<p>Terrain: {data.terrain}</p>
-	 			<p>population: {data.population}</p>
+	 			<p>Population: {data.population}</p>
 	      		<img class='favorite-button' src={Star} alt='favorite button' />
 	 		</div>
 	 	)
