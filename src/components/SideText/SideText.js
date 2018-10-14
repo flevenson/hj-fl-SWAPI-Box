@@ -1,6 +1,7 @@
 import React from 'react';
 import './SideText.css';
 import TypeWriter from 'react-typewriter';
+import PropTypes from 'prop-types';
 
 const SideText = ({ filmText }) => {
 	const concatData = (filmText) => {
@@ -14,6 +15,10 @@ const SideText = ({ filmText }) => {
       </TypeWriter>
     </div>
   )
+}
+
+SideText.propTypes = {
+	filmText: PropTypes.object.isRequired
 }
 
 export default SideText

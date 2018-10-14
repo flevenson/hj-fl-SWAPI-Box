@@ -29,7 +29,8 @@ const CardContainer = ({ display, selected }) => {
 }
 
 CardContainer.propTypes = {
-	display: PropTypes.object,
+	display: PropTypes.object.isRequired,
+  selected: PropTypes.string.isRequired
 }; 
 
 export default CardContainer;

@@ -4,7 +4,8 @@ exports[`NavBar should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
-    getData={[MockFunction]}
+    handleNavClick={[MockFunction]}
+    selected=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -23,25 +24,26 @@ ShallowWrapper {
         <button
           className="people"
           name="people"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           People
         </button>,
         <button
           className="planets"
           name="planets"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           Planets
         </button>,
         <button
           className="vehicles"
           name="vehicles"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           Vehicles
         </button>,
         <button
+          className=""
           name="favorites"
         >
           Favorites
@@ -59,7 +61,7 @@ ShallowWrapper {
           "children": "People",
           "className": "people",
           "name": "people",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "People",
@@ -73,7 +75,7 @@ ShallowWrapper {
           "children": "Planets",
           "className": "planets",
           "name": "planets",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "Planets",
@@ -87,7 +89,7 @@ ShallowWrapper {
           "children": "Vehicles",
           "className": "vehicles",
           "name": "vehicles",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "Vehicles",
@@ -99,7 +101,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Favorites",
-          "className": undefined,
+          "className": "",
           "name": "favorites",
         },
         "ref": null,
@@ -119,25 +121,26 @@ ShallowWrapper {
           <button
             className="people"
             name="people"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             People
           </button>,
           <button
             className="planets"
             name="planets"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             Planets
           </button>,
           <button
             className="vehicles"
             name="vehicles"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             Vehicles
           </button>,
           <button
+            className=""
             name="favorites"
           >
             Favorites
@@ -155,7 +158,7 @@ ShallowWrapper {
             "children": "People",
             "className": "people",
             "name": "people",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": "People",
@@ -169,7 +172,7 @@ ShallowWrapper {
             "children": "Planets",
             "className": "planets",
             "name": "planets",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": "Planets",
@@ -183,7 +186,7 @@ ShallowWrapper {
             "children": "Vehicles",
             "className": "vehicles",
             "name": "vehicles",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": "Vehicles",
@@ -195,7 +198,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Favorites",
-            "className": undefined,
+            "className": "",
             "name": "favorites",
           },
           "ref": null,
