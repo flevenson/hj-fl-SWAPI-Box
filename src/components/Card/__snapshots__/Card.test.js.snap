@@ -97,7 +97,7 @@ ShallowWrapper {
         </p>,
         <img
           alt="favorite button"
-          class="favorite-button"
+          className="favorite-button"
           src="star.svg"
         />,
       ],
@@ -173,7 +173,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "favorite button",
-          "class": "favorite-button",
+          "className": "favorite-button",
           "src": "star.svg",
         },
         "ref": null,
@@ -202,7 +202,7 @@ ShallowWrapper {
           </p>,
           <img
             alt="favorite button"
-            class="favorite-button"
+            className="favorite-button"
             src="star.svg"
           />,
         ],
@@ -278,7 +278,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "favorite button",
-            "class": "favorite-button",
+            "className": "favorite-button",
             "src": "star.svg",
           },
           "ref": null,

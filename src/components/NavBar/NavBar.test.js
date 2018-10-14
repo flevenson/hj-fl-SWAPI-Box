@@ -34,6 +34,21 @@ describe('NavBar', () => {
 	  expect(mockFunction).toBeCalled()
 	})
 
+	it('should display people when selected', () => {
+		wrapper = shallow(<NavBar selected={'people'} />)
+		expect(wrapper.find('.selected').length).toEqual(1)
+	})
+
+	it('should display planets when selected', () => {
+		wrapper = shallow(<NavBar selected={'planets'} />)
+		expect(wrapper.find('.selected').length).toEqual(1)
+	})
+
+	it('should display vehicles when selected', () => {
+		wrapper = shallow(<NavBar selected={'vehicles'} />)
+		expect(wrapper.find('.selected').length).toEqual(1)
+	})
+
 	// it('should only allow one button to be selected', () => {
 	//   wrapper = mount(<NavBar handleNavClick={mockFunction} selected={''} /> );
 	//   let selected = wrapper.find('.selected')

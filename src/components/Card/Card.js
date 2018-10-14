@@ -13,7 +13,7 @@ const Card = ({ data, selected }) => {
         <p>Homeworld: {data.homeworld}</p>
         <p>Species: {data.species}</p>
 	      <p>Population: {data.population}</p>
-	      <img class='favorite-button' src={Star} alt='favorite button' />
+	      <img className='favorite-button' src={Star} alt='favorite button' />
 	    </div>
 	   )
 	 } else if (selected === 'planets') {
