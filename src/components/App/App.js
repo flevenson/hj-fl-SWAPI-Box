@@ -26,16 +26,32 @@ class App extends Component {
     this.setState({
       filmText: filmText
     })
+    if (await this.getFromLocalStorage('display')) {
+      const storedState = await this.getFromLocalStorage('display')
+      await this.setState({ storedState })
+    }
   }
 
   getData = async (buttonName) => {
-    await this.setState({selected: buttonName});
+    await this.setState({ selected: buttonName });
     await this.setState({ display: await Cleaner.fetchData(buttonName) });
     await this.setState({ [buttonName]: this.state.display});
+    await this.addToLocalStorage(buttonName)
   }
 
   addToLocalStorage(buttonName) {
-    localStorage.setItem((`${buttonName}`), JSON.stringify(this.state[buttonName]))
+    localStorage.setItem(('display'), JSON.stringify(this.state[buttonName]))
+    localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
+  }
+
+  getFromLocalStorage = async (storedName) => {
+    const storedDisplay = await JSON.parse(await localStorage.getItem('display'));
+    const storedState = await JSON.parse(await localStorage.getItem('selected'));
+    let localStoredState = {
+      display: storedDisplay,
+      selected: storedState
+    }
+    return localStoredState
   }
 
   handleNavClick = (event) => {

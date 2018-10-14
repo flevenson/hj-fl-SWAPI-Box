@@ -4,9 +4,7 @@ import './NavBar.css'
 
 const NavBar = ({ selected, handleNavClick }) => {
 
-	
-  
-  return (
+	 return (
     <div className="nav-bar-div">
       <button 
       	className={selected === 'people' ? 'selected' : 'people'} 
