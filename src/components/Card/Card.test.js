@@ -15,7 +15,7 @@ describe('Card', () => {
 	})
 
 	it('should match a snapshot', () => {
-		 wrapper = shallow(<Card data={mockData} selected={''} />)
+		wrapper = shallow(<Card data={mockData} selected={''} />)
 		expect(wrapper).toMatchSnapshot()
 	})
 

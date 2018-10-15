@@ -26,9 +26,8 @@ class App extends Component {
     this.setState({
       filmText: filmText
     })
-    if (await this.getFromLocalStorage('display')) {
-      const storedState = await this.getFromLocalStorage('display')
-      await this.setState({ storedState })
+    if (localStorage.display && localStorage.selected) {
+      this.getFromLocalStorage()
     }
   }
 
@@ -44,14 +43,10 @@ class App extends Component {
     localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
   }
 
-  getFromLocalStorage = async (storedName) => {
+  getFromLocalStorage = async () => {
     const storedDisplay = await JSON.parse(await localStorage.getItem('display'));
     const storedState = await JSON.parse(await localStorage.getItem('selected'));
-    let localStoredState = {
-      display: storedDisplay,
-      selected: storedState
-    }
-    return localStoredState
+    await this.setState({ display: storedDisplay, selected: storedState })
   }
 
   handleNavClick = (event) => {
