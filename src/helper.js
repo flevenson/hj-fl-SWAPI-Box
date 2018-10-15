@@ -10,6 +10,9 @@ export const fetchData = async (buttonName) => {
         case 'planets':
           const newPlanetData = await getPlanets(results)
           return {...newPlanetData};
+        case 'vehicles':
+          const newVehicleData = await getVehicles(results)
+          return {...newVehicleData};
         default:
 		      return { ...results }
         }
@@ -21,10 +24,10 @@ export const fetchData = async (buttonName) => {
     const peopleKeys = await Object.keys(data)
     const newPeople = peopleKeys.map( async (person) => {
       person = {
-        name: data[person].name,
-        homeworld: await getHomeworld(data[person]),
-        species: await getSpecies(data[person]),
-        population: await getPopulation(data[person])
+        Name: data[person].name,
+        Homeworld: await getHomeworld(data[person]),
+        Species: await getSpecies(data[person]),
+        Population: await getPopulation(data[person])
       }
       return person
     })
@@ -60,11 +63,11 @@ export const fetchData = async (buttonName) => {
     const planetKeys = await Object.keys(data);
     const newPlanets = planetKeys.map( async (planet) => {
       planet = {
-      name: data[planet].name,
-      terrain: data[planet].terrain,
-      population: data[planet].population,
-      climate: data[planet].climate,
-      residents: await getResidents(data[planet])
+      Name: data[planet].name,
+      Terrain: data[planet].terrain,
+      Population: data[planet].population,
+      Climate: data[planet].climate,
+      Residents: await getResidents(data[planet])
       }
       return planet
     })
@@ -83,6 +86,20 @@ export const fetchData = async (buttonName) => {
       return await Promise.all(residentNames);
   } 
 }
+
+  const getVehicles = async (data) => {
+    const vehicleKeys = await Object.keys(data);
+    const newVehicles = vehicleKeys.map ( async (vehicle) => {
+      vehicle = {
+        Name: data[vehicle].name,
+        Model: data[vehicle].model,
+        Class: data[vehicle].class,
+        'Number of Passengers': data[vehicle].passengers
+      }
+      return vehicle
+    })
+    return await Promise.all(newVehicles)
+  }
   
   
 
