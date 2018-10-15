@@ -21,7 +21,7 @@ describe('CardContainer', () => {
 			  species: 'human',
 			  population: 100
 			 }],
-			 2: [{
+			 1: [{
 			  name: 'Luke',
 			  homeworld: 'Tattooine',
 			  species: 'human',

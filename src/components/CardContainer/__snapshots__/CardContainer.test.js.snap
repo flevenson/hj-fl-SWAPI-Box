@@ -13,7 +13,7 @@ ReactWrapper {
             "species": "human",
           },
         ],
-        "2": Array [
+        "1": Array [
           Object {
             "homeworld": "Tattooine",
             "name": "Luke",
@@ -48,7 +48,7 @@ ReactWrapper {
             "species": "human",
           },
         ],
-        "2": Array [
+        "1": Array [
           Object {
             "homeworld": "Tattooine",
             "name": "Luke",
@@ -291,7 +291,7 @@ ReactWrapper {
         },
         Object {
           "instance": null,
-          "key": "2",
+          "key": "1",
           "nodeType": "function",
           "props": Object {
             "data": Array [
@@ -460,7 +460,7 @@ ReactWrapper {
               "species": "human",
             },
           ],
-          "2": Array [
+          "1": Array [
             Object {
               "homeworld": "Tattooine",
               "name": "Luke",
@@ -703,7 +703,7 @@ ReactWrapper {
           },
           Object {
             "instance": null,
-            "key": "2",
+            "key": "1",
             "nodeType": "function",
             "props": Object {
               "data": Array [
