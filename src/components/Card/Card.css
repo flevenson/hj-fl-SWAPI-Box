@@ -1,5 +1,18 @@
 .card {
-	border: solid;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-evenly;
+  background-color: #ffb80057;
+  font-family: 'Play', sans-serif;
+  font-size: 1.1rem;
+  line-height: 17.2px;
+  letter-spacing: 1.5px;
+  color: #493933;
+  box-shadow: 0 0 3px 1px #493933a3;
+  border-radius: 11px;
+  padding: 0 20px;
+
 }
 
 .favorite-button {
