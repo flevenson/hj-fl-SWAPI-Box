@@ -9,9 +9,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      people: {},
-      planets: {},
-      vehicles: {},
+      // people: {},
+      // planets: {},
+      // vehicles: {},
       filmText: {},
       selected: '',
       display: {}
@@ -50,6 +50,7 @@ class App extends Component {
   }
 
   handleNavClick = (event) => {
+    console.log(event)
     let buttonName = event.target.getAttribute('name')
     this.getData(buttonName)
   }
@@ -68,7 +69,7 @@ class App extends Component {
   }
 
   render() {
-    const { people, selected, filmText, display, planets, vehicles } = this.state;
+    const { selected, filmText, display } = this.state;
 
     return (
       <div className="app">
@@ -88,9 +89,9 @@ class App extends Component {
         <main>
           <CardContainer 
             display={ display } 
-            people={ people } 
-            vehicles={ vehicles } 
-            planets={ planets }
+            // people={ people } 
+            // vehicles={ vehicles } 
+            // planets={ planets }
             selected={ selected }
           />
         </main>
