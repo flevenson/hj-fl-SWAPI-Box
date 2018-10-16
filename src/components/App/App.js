@@ -60,8 +60,8 @@ class App extends Component {
   addToFavorites = (event) => {
     let keys = Object.keys(this.state.display);
     let cardName = event.target.getAttribute('name')
-    let cardToFavorite = keys.find(key => this.state.display[key].name === cardName)
-    console.log(cardToFavorite)
+    let cardToFavorite = keys.find(key => this.state.display[key].Name === cardName)
+    console.log(cardName)
     this.state.favorites.push(this.state.display[cardToFavorite])
     this.setState({ favorites: this.state.favorites})
   }
