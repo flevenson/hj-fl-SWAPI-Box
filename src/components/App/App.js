@@ -9,12 +9,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // people: {},
-      // planets: {},
-      // vehicles: {},
       filmText: {},
       selected: '',
-      display: {}
+      display: {},
+      favorites: []
     }
   }
 
@@ -33,14 +31,18 @@ class App extends Component {
 
   getData = async (buttonName) => {
     await this.setState({ selected: buttonName });
-    await this.setState({ display: await Cleaner.fetchData(buttonName) });
-    await this.setState({ [buttonName]: this.state.display});
+    if (buttonName !== 'favorites'){
+      await this.setState({ display: await Cleaner.fetchData(buttonName) })
+    } else {
+      await this.setState({ display: this.state.favorites })
+    }
     await this.addToLocalStorage(buttonName)
   }
 
   addToLocalStorage(buttonName) {
-    localStorage.setItem(('display'), JSON.stringify(this.state[buttonName]))
+    localStorage.setItem(('display'), JSON.stringify(this.state.display))
     localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
+    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
   }
 
   getFromLocalStorage = async () => {
@@ -53,6 +55,15 @@ class App extends Component {
     console.log(event)
     let buttonName = event.target.getAttribute('name')
     this.getData(buttonName)
+  }
+
+  addToFavorites = (event) => {
+    let keys = Object.keys(this.state.display);
+    let cardName = event.target.getAttribute('name')
+    let cardToFavorite = keys.find(key => this.state.display[key].name === cardName)
+    console.log(cardToFavorite)
+    this.state.favorites.push(this.state.display[cardToFavorite])
+    this.setState({ favorites: this.state.favorites})
   }
 
   async formatFilmText(data) {
@@ -69,7 +80,7 @@ class App extends Component {
   }
 
   render() {
-    const { selected, filmText, display } = this.state;
+    const { selected, filmText, display, favorites } = this.state;
 
     return (
       <div className="app">
@@ -89,10 +100,9 @@ class App extends Component {
         <main>
           <CardContainer 
             display={ display } 
-            // people={ people } 
-            // vehicles={ vehicles } 
-            // planets={ planets }
+            favorites={ favorites }
             selected={ selected }
+            addToFavorites={this.addToFavorites}
           />
         </main>
       </div>

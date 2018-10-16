@@ -3,12 +3,13 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import './CardContainer.css';
 
-const CardContainer = ({ display, selected }) => {
+const CardContainer = ({ display, selected, favorites, addToFavorites }) => {
 	const cards = Object.keys(display).map(element => {
 		return <Card
 			data={display[element]}
 			key={element}
       selected={selected}
+      addToFavorites={addToFavorites}
 		/>
 
 	})

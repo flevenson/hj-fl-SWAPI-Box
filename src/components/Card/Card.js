@@ -3,42 +3,25 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import Star from '../../images/star.svg'
 
-const Card = ({ data, selected }) => {
+const Card = ({ data, selected, addToFavorites }) => {
 
-		 if (selected === 'people') {
+    let dataKeys = Object.keys(data);
+    let cardCharacteristics = dataKeys.map(key => (
+      <p>{key.toUpperCase()}: {data[key]}</p>
+    ))
 
+		if (data) {
 	  return (
 	    <div className='card'>
-	      <h1>{data.name}</h1>
-        <p>Homeworld: {data.homeworld}</p>
-        <p>Species: {data.species}</p>
-	      <p>Population: {data.population}</p>
-	      <img className='favorite-button' src={Star} alt='favorite button' />
+        { cardCharacteristics  }	      
+        <img  className='favorite-button' 
+              src={Star} 
+              alt='favorite button' 
+              onClick={addToFavorites}
+        />
 	    </div>
 	   )
-	 } else if (selected === 'planets') {
-	 	return (
-	 		<div className='card'>
-	 			<h1>{data.name}</h1>
-        <p>Climate: {data.climate}</p>
-        <p>Terrain: {data.terrain}</p>
-        <p>Population: {data.population}</p>
-	 			<p>Residents: {data.residents}</p>
-	      		<img class='favorite-button' src={Star} alt='favorite button' />
-	 		</div>
-	 	)
-	 } else if (selected === 'vehicles') {
-	 	return (
-	 		<div className='card'>
-	 			<h1>{data.name}</h1>
-	 			<p>Model: {data.model}</p>
-	 			<p>Class: {data.vehicle_class}</p>
-	 			<p>Number of Passengers: {data.passengers}</p>
-	 			<p>Max Speed: {data.max_atmosphering_speed}</p>
-	      		<img class='favorite-button' src={Star} alt='favorite button' />	 			
-	 		</div>
-	 	)
-	  } else {
+    } else {
 	  	return (
 	  		<div>
 	  		</div>
