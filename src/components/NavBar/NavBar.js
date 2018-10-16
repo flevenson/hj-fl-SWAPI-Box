@@ -25,8 +25,9 @@ const NavBar = ({ selected, handleNavClick }) => {
       	Vehicles
       </button>
       <button 
-      	className={selected} 
-      	name='favorites'>
+      	className={selected === 'favorites' ? 'selected' : 'favorites'}
+      	name='favorites'
+        onClick={handleNavClick}>
       	Favorites
       </button>
     </div>

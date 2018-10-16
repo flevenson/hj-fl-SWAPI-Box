@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import Star from '../../images/star.svg'
 
-const Card = ({ data, selected }) => {
+const Card = ({ data, selected, addToFavorites }) => {
 
     let dataKeys = Object.keys(data);
     let cardCharacteristics = dataKeys.map(key => (
@@ -14,7 +14,11 @@ const Card = ({ data, selected }) => {
 	  return (
 	    <div className='card'>
         { cardCharacteristics  }	      
-        <img className='favorite-button' src={Star} alt='favorite button' />
+        <img  className='favorite-button' 
+              src={Star} 
+              alt='favorite button' 
+              onClick={addToFavorites}
+        />
 	    </div>
 	   )
     } else {
