@@ -4,7 +4,6 @@ import './Card.css';
 import Star from '../../images/star.svg'
 
 const Card = ({ data, selected, addToFavorites }) => {
-
     let dataKeys = Object.keys(data);
     let cardCharacteristics = dataKeys.map(key => (
       <p>{key.toUpperCase()}: {data[key]}</p>
@@ -15,7 +14,8 @@ const Card = ({ data, selected, addToFavorites }) => {
 	    <div className='card'>
         { cardCharacteristics  }	      
         <img  className='favorite-button' 
-              src={Star} 
+              src={Star}
+              name={data.Name} 
               alt='favorite button' 
               onClick={addToFavorites}
         />
