@@ -27,7 +27,8 @@ export const fetchData = async (buttonName) => {
         Name: data[person].name,
         Homeworld: await getHomeworld(data[person]),
         Species: await getSpecies(data[person]),
-        Population: await getPopulation(data[person])
+        Population: await getPopulation(data[person]),
+        Favorited: false
       }
       return person
     })
@@ -67,7 +68,8 @@ export const fetchData = async (buttonName) => {
       Terrain: data[planet].terrain,
       Population: data[planet].population,
       Climate: data[planet].climate,
-      Residents: await getResidents(data[planet])
+      Residents: await getResidents(data[planet]), 
+      Favorited: false
       }
       return planet
     })
@@ -94,7 +96,8 @@ export const fetchData = async (buttonName) => {
         Name: data[vehicle].name,
         Model: data[vehicle].model,
         Class: data[vehicle].class,
-        'Number of Passengers': data[vehicle].passengers
+        'Number of Passengers': data[vehicle].passengers,
+        Favorited: false
       }
       return vehicle
     })

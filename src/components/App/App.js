@@ -61,7 +61,8 @@ class App extends Component {
   addToFavorites = (name, id) => {
     let keys = Object.keys(this.state.display);
     let favoritesNames = this.state.favorites.map(favorite => favorite.Name)
-    console.log(favoritesNames)
+    let cardToChange = keys.find(card => this.state.display[card].Name === name)
+    this.state.display[cardToChange].Favorited = !this.state.display[cardToChange].Favorited
     if (favoritesNames.includes(name)) {
       let filteredFavorites = this.state.favorites.filter(favorite => favorite.Name !== name)
       this.setState({ favorites: filteredFavorites, display: filteredFavorites })

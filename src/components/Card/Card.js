@@ -4,9 +4,10 @@ import './Card.css';
 import Star from '../../images/star.svg';
 import StarTwo from '../../images/clicked-star.svg';
 
-const Card = ({ data, selected, addToFavorites, favorited, id }) => {
+const Card = ({ data, selected, addToFavorites, id }) => {
     let dataKeys = Object.keys(data);
-    let cardCharacteristics = dataKeys.map(key => (
+    let filteredDataKeys = dataKeys.filter(data => data !== data.Favorited)
+    let cardCharacteristics = filteredDataKeys.map(key => (
       <p>{key.toUpperCase()}: {data[key]}</p>
     ))
 
@@ -20,10 +21,9 @@ const Card = ({ data, selected, addToFavorites, favorited, id }) => {
         }>	      
 	        <img   
         	  className='favorite-button'
-              src={favorited ? StarTwo : Star}
+              src={data.Favorited ? StarTwo : Star}
               name={data.Name} 
-              alt='favorite button' 
-              
+              alt='favorite button'           
 	        />
         </button>
 	    </div>
