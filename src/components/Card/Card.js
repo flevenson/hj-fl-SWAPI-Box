@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
-import Star from '../../images/star.svg'
+import Star from '../../images/star.svg';
+import StarTwo from '../../images/clicked-star.svg';
 
-const Card = ({ data, selected, addToFavorites }) => {
+const Card = ({ data, selected, addToFavorites, favorited, id }) => {
     let dataKeys = Object.keys(data);
     let cardCharacteristics = dataKeys.map(key => (
       <p>{key.toUpperCase()}: {data[key]}</p>
@@ -12,13 +13,19 @@ const Card = ({ data, selected, addToFavorites }) => {
 		if (data) {
 	  return (
 	    <div className='card'>
-        { cardCharacteristics  }	      
-        <img  className='favorite-button' 
-              src={Star}
+        { cardCharacteristics  }
+        <button 
+        	name={data.Name} 
+        	onClick={() => addToFavorites(data.Name, id)
+        }>	      
+	        <img   
+        	  className='favorite-button'
+              src={favorited ? StarTwo : Star}
               name={data.Name} 
               alt='favorite button' 
-              onClick={addToFavorites}
-        />
+              
+	        />
+        </button>
 	    </div>
 	   )
     } else {
