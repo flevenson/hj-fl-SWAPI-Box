@@ -12,7 +12,8 @@ class App extends Component {
       filmText: {},
       selected: '',
       display: {},
-      favorites: []
+      favorites: [],
+      isLoading: false
     }
   }
 
@@ -30,11 +31,16 @@ class App extends Component {
   }
 
   getData = async (buttonName) => {
-    await this.setState({ selected: buttonName });
-    if (buttonName !== 'favorites'){
-      await this.setState({ display: await Cleaner.fetchData(buttonName) })
+    await this.setState({ selected: buttonName,
+                          isLoading: true });
+    if (buttonName !== 'favorites') {
+      await this.setState({ display: await Cleaner.fetchData(buttonName),
+                             })
+      await this.setState({isLoading: false})
     } else {
-      await this.setState({ display: this.state.favorites })
+      await this.setState({ display: this.state.favorites,
+                            })
+      await this.setState({ isLoading: false})
     }
     await this.addToLocalStorage(buttonName)
   }
@@ -69,10 +75,10 @@ class App extends Component {
       localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
       localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
     } else {
-    let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
-    this.state.favorites.push(this.state.display[cardToFavorite])
-    this.setState({ favorites: this.state.favorites })
-    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
+      let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
+      this.state.favorites.push(this.state.display[cardToFavorite])
+      this.setState({ favorites: this.state.favorites })
+      localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
     }
   }
 
@@ -90,7 +96,7 @@ class App extends Component {
   }
 
   render() {
-    const { selected, filmText, display, favorites } = this.state;
+    const { selected, filmText, display, favorites, isLoading } = this.state;
 
     return (
       <div className="app">
@@ -112,8 +118,9 @@ class App extends Component {
             display={ display } 
             favorites={ favorites }
             selected={ selected }
-            addToFavorites={this.addToFavorites}
-            favorited={false}
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
+            isLoading={ isLoading }
           />
         </main>
       </div>
