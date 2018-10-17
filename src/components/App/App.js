@@ -69,10 +69,10 @@ class App extends Component {
       localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
       localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
     } else {
-    let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
-    this.state.favorites.push(this.state.display[cardToFavorite])
-    this.setState({ favorites: this.state.favorites })
-    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
+      let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
+      this.state.favorites.push(this.state.display[cardToFavorite])
+      this.setState({ favorites: this.state.favorites })
+      localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
     }
   }
 
@@ -112,8 +112,8 @@ class App extends Component {
             display={ display } 
             favorites={ favorites }
             selected={ selected }
-            addToFavorites={this.addToFavorites}
-            favorited={false}
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
           />
         </main>
       </div>

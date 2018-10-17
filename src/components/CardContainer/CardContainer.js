@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import './CardContainer.css';
 
 const CardContainer = ({ display, selected, favorites, addToFavorites, favorited }) => {
-	const cards = Object.keys(display).map(element => {
+	const cards = Object.keys(display).map(element => { 
+
 		return <Card
 			data={display[element]}
 			key={element}
@@ -15,12 +16,15 @@ const CardContainer = ({ display, selected, favorites, addToFavorites, favorited
 		/>
 	})
 
-  if(!Object.keys(display).length) {
+  if (!selected.length && !Object.keys(display).length) {
     return (
       <div>
         Welcome To SWAPI BOX
       </div>
-      )
+  )} else if (selected.length && !Object.keys(display).length) {
+      return(
+        <div>loading, please wait..</div>
+    )
   }	else {
   	return (
   	  <div className='card-container'>
