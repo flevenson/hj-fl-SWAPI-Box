@@ -48,7 +48,8 @@ class App extends Component {
   getFromLocalStorage = async () => {
     const storedDisplay = await JSON.parse(await localStorage.getItem('display'));
     const storedState = await JSON.parse(await localStorage.getItem('selected'));
-    await this.setState({ display: storedDisplay, selected: storedState })
+    const storedFavorites = await JSON.parse(await localStorage.getItem('favorites'));
+    await this.setState({ display: storedDisplay, selected: storedState, favorites: storedFavorites })
   }
 
   handleNavClick = (event) => {
@@ -57,13 +58,21 @@ class App extends Component {
     this.getData(buttonName)
   }
 
-  addToFavorites = (event) => {
+  addToFavorites = (name, id) => {
     let keys = Object.keys(this.state.display);
-    let cardName = event.target.getAttribute('name')
-    let cardToFavorite = keys.find(key => this.state.display[key].Name === cardName)
-    console.log(cardName)
+    let favoritesNames = this.state.favorites.map(favorite => favorite.Name)
+    console.log(favoritesNames)
+    if (favoritesNames.includes(name)) {
+      let filteredFavorites = this.state.favorites.filter(favorite => favorite.Name !== name)
+      this.setState({ favorites: filteredFavorites, display: filteredFavorites })
+      localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
+      localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
+    } else {
+    let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
     this.state.favorites.push(this.state.display[cardToFavorite])
-    this.setState({ favorites: this.state.favorites})
+    this.setState({ favorites: this.state.favorites })
+    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
+    }
   }
 
   async formatFilmText(data) {
@@ -103,6 +112,7 @@ class App extends Component {
             favorites={ favorites }
             selected={ selected }
             addToFavorites={this.addToFavorites}
+            favorited={false}
           />
         </main>
       </div>
