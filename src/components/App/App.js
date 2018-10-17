@@ -12,7 +12,8 @@ class App extends Component {
       filmText: {},
       selected: '',
       display: {},
-      favorites: []
+      favorites: [],
+      isLoading: false
     }
   }
 
@@ -30,11 +31,16 @@ class App extends Component {
   }
 
   getData = async (buttonName) => {
-    await this.setState({ selected: buttonName });
-    if (buttonName !== 'favorites'){
-      await this.setState({ display: await Cleaner.fetchData(buttonName) })
+    await this.setState({ selected: buttonName,
+                          isLoading: true });
+    if (buttonName !== 'favorites') {
+      await this.setState({ display: await Cleaner.fetchData(buttonName),
+                             })
+      await this.setState({isLoading: false})
     } else {
-      await this.setState({ display: this.state.favorites })
+      await this.setState({ display: this.state.favorites,
+                            })
+      await this.setState({ isLoading: false})
     }
     await this.addToLocalStorage(buttonName)
   }
@@ -90,7 +96,7 @@ class App extends Component {
   }
 
   render() {
-    const { selected, filmText, display, favorites } = this.state;
+    const { selected, filmText, display, favorites, isLoading } = this.state;
 
     return (
       <div className="app">
@@ -114,6 +120,7 @@ class App extends Component {
             selected={ selected }
             addToFavorites={ this.addToFavorites }
             favorited={ false }
+            isLoading={ isLoading }
           />
         </main>
       </div>

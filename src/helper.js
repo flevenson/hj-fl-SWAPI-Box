@@ -1,6 +1,9 @@
 export const fetchData = async (buttonName) => {
 		const starWarsApi = `https://swapi.co/api/${buttonName}/`;
     const response = await fetch(starWarsApi);
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
   	const data = await response.json();
     const results = {...data.results};
     switch (buttonName) {
@@ -15,9 +18,9 @@ export const fetchData = async (buttonName) => {
           return {...newVehicleData};
         default:
 		      return { ...results }
-        }
-    
-	}
+        }   
+	   }
+  }
 
  
   const getPeople = async (data) => {

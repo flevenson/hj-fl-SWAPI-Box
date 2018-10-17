@@ -3,7 +3,7 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import './CardContainer.css';
 
-const CardContainer = ({ display, selected, favorites, addToFavorites, favorited }) => {
+const CardContainer = ({ display, selected, favorites, addToFavorites, favorited, isLoading }) => {
 	const cards = Object.keys(display).map(element => { 
 
 		return <Card
@@ -21,8 +21,8 @@ const CardContainer = ({ display, selected, favorites, addToFavorites, favorited
       <div>
         Welcome To SWAPI BOX
       </div>
-  )} else if (selected.length && !Object.keys(display).length) {
-      return(
+  )} else if (isLoading) {
+      return (
         <div>loading, please wait..</div>
     )
   }	else {
