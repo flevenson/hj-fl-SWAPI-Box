@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import './CardContainer.css';
 
 const CardContainer = ({ people, planets, vehicles, display, selected, favorites, addToFavorites, favorited, isLoading }) => {
-	const cards = Object.keys(display).map(element => { 
+	
+  // let cards
+
+  const cards = Object.keys(display).map(element => { 
     console.log(`${selected}`)
 		return <Card
 			data={display[element]}
@@ -15,6 +18,48 @@ const CardContainer = ({ people, planets, vehicles, display, selected, favorites
       favorited={false}
 		/>
 	})
+
+  // switch(selected) {
+  //   case 'people': 
+  //     cards = Object.keys(people).map(element => { 
+  //       console.log(`${selected}`)
+  //       return <Card
+  //         data={people[element]}
+  //         key={element}
+  //         id={people[element].name}
+  //         selected={selected}
+  //         addToFavorites={addToFavorites}
+  //         favorited={false}
+  //       />
+  //     })
+  //     return cards;
+  //   case 'planets': 
+  //     cards = Object.keys(planets).map(element => { 
+  //       console.log(`${selected}`)
+  //       return <Card
+  //         data={planets[element]}
+  //         key={element}
+  //         id={planets[element].name}
+  //         selected={selected}
+  //         addToFavorites={addToFavorites}
+  //         favorited={false}
+  //       />
+  //     })
+  //     return cards;
+  //   case 'vehicles': 
+  //     cards = Object.keys(vehicles).map(element => { 
+  //       console.log(`${selected}`)
+  //       return <Card
+  //         data={vehicles[element]}
+  //         key={element}
+  //         id={vehicles[element].name}
+  //         selected={selected}
+  //         addToFavorites={addToFavorites}
+  //         favorited={false}
+  //       />
+  //     })
+  //     return cards;
+  // }
 
   if (!selected.length && !Object.keys(display).length) {
     return (
