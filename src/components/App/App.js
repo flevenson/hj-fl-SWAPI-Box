@@ -36,6 +36,7 @@ class App extends Component {
   getData = async (buttonName) => {
     await this.setState({ selected: buttonName,
                           isLoading: true });
+
     if (buttonName !== 'favorites' && !Object.keys(this.state[buttonName]).length) {
 
       await this.setState({ [buttonName]: await Cleaner.fetchData(buttonName) })
@@ -48,14 +49,29 @@ class App extends Component {
   addToLocalStorage(buttonName) {
     localStorage.setItem(('display'), JSON.stringify(this.state.display))
     localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
-    localStorage.setItem(([buttonName]), JSON.stringify(this.state[buttonName]))
+    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
   }
 
   getFromLocalStorage = async () => {
     const storedDisplay = await JSON.parse(await localStorage.getItem('display'));
     const storedState = await JSON.parse(await localStorage.getItem('selected'));
+    if(localStorage.favorites) {
     const storedFavorites = await JSON.parse(await localStorage.getItem('favorites'));
-    await this.setState({ display: storedDisplay, selected: storedState, favorites: storedFavorites })
+    this.setState({favorites: storedFavorites})
+    } 
+    if(localStorage.people) {
+      const storedPeople = await JSON.parse(await localStorage.getItem('people'));
+      this.setState({people: storedPeople})
+    }
+    if(localStorage.planets) {
+      const storedPlanets = await JSON.parse(await localStorage.getItem('planets'));
+      this.setState({planets: storedPlanets})
+    }
+    if(localStorage.vehicles) {
+      const storedVehicles = await JSON.parse(await localStorage.getItem('vehicles'));
+      this.setState({vehicles: storedVehicles})
+    }
+    await this.setState({ display: storedDisplay, selected: storedState})
   }
 
   handleNavClick = (event) => {
@@ -65,7 +81,7 @@ class App extends Component {
   }
 
   addToFavorites = (cardName, id, selectedState) => {
-    let { display, favorites } = this.state
+    let { display, favorites, selected,  } = this.state
     let keys = Object.keys(display);
     // make an array of just the names of the cards in favorites
     let favoritesNames = favorites.map(favorite => favorite.Name)
