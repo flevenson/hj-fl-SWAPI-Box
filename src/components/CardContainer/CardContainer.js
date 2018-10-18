@@ -3,9 +3,9 @@ import Card from '../Card/Card.js';
 import PropTypes from 'prop-types';
 import './CardContainer.css';
 
-const CardContainer = ({ display, selected, favorites, addToFavorites, favorited, isLoading }) => {
+const CardContainer = ({ people, planets, vehicles, display, selected, favorites, addToFavorites, favorited, isLoading }) => {
 	const cards = Object.keys(display).map(element => { 
-
+    console.log(`${selected}`)
 		return <Card
 			data={display[element]}
 			key={element}

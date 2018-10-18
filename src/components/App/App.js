@@ -9,6 +9,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      people: {},
+      planets: {},
+      vehicles: {},
       filmText: {},
       selected: '',
       display: {},
@@ -33,22 +36,19 @@ class App extends Component {
   getData = async (buttonName) => {
     await this.setState({ selected: buttonName,
                           isLoading: true });
-    if (buttonName !== 'favorites') {
-      await this.setState({ display: await Cleaner.fetchData(buttonName),
-                             })
-      await this.setState({isLoading: false})
-    } else {
-      await this.setState({ display: this.state.favorites,
-                            })
-      await this.setState({ isLoading: false})
+    if (buttonName !== 'favorites' && !Object.keys(this.state[buttonName]).length) {
+
+      await this.setState({ [buttonName]: await Cleaner.fetchData(buttonName) })
+    } 
+      await this.setState({isLoading: false,
+                            display: this.state[buttonName]})
+      await this.addToLocalStorage(buttonName)
     }
-    await this.addToLocalStorage(buttonName)
-  }
 
   addToLocalStorage(buttonName) {
     localStorage.setItem(('display'), JSON.stringify(this.state.display))
     localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
-    localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
+    localStorage.setItem(([buttonName]), JSON.stringify(this.state[buttonName]))
   }
 
   getFromLocalStorage = async () => {
@@ -60,25 +60,31 @@ class App extends Component {
 
   handleNavClick = (event) => {
     console.log(event)
-    let buttonName = event.target.getAttribute('name')
-    this.getData(buttonName)
+    let navButtonName = event.target.getAttribute('name')
+    this.getData(navButtonName)
   }
 
-  addToFavorites = (name, id) => {
-    let keys = Object.keys(this.state.display);
-    let favoritesNames = this.state.favorites.map(favorite => favorite.Name)
-    let cardToChange = keys.find(card => this.state.display[card].Name === name)
-    this.state.display[cardToChange].Favorited = !this.state.display[cardToChange].Favorited
-    if (favoritesNames.includes(name)) {
-      let filteredFavorites = this.state.favorites.filter(favorite => favorite.Name !== name)
-      this.setState({ favorites: filteredFavorites, display: filteredFavorites })
+  addToFavorites = (cardName, id, selectedState) => {
+    let { display, favorites } = this.state
+    let keys = Object.keys(display);
+    // make an array of just the names of the cards in favorites
+    let favoritesNames = favorites.map(favorite => favorite.Name)
+    // find the card in display that has the correct name (the name of the button)
+    let cardToChange = keys.find(card => display[card].Name === cardName)
+    // changing the property on that card in display to favorited or not favorited
+    display[cardToChange].Favorited = !display[cardToChange].Favorited
+    if (favoritesNames.includes(cardName)) {
+      // if card is already favorited, filter it out and make favorites all excluding it
+      let filteredFavorites = favorites.filter(favorite => favorite.Name !== cardName)
+      this.setState({ favorites: filteredFavorites, selectedState: this.state[selectedState]})
       localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
       localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
     } else {
-      let cardToFavorite = keys.find(key => this.state.display[key].Name === name)
-      this.state.favorites.push(this.state.display[cardToFavorite])
-      this.setState({ favorites: this.state.favorites })
-      localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
+      // if card is not favorited find the card in display and push it to the favorites array
+      let cardToFavorite = keys.find(key => display[key].Name === cardName)
+      favorites.push(display[cardToFavorite])
+      this.setState({ favorites: favorites, selectedState: this.state[selectedState] })
+      localStorage.setItem(('favorites'), JSON.stringify(favorites))
     }
   }
 
@@ -96,7 +102,7 @@ class App extends Component {
   }
 
   render() {
-    const { selected, filmText, display, favorites, isLoading } = this.state;
+    const { people, planets, vehicles, selected, filmText, display, favorites, isLoading } = this.state;
 
     return (
       <div className="app">
@@ -115,6 +121,9 @@ class App extends Component {
         </aside>
         <main>
           <CardContainer 
+            people={ people }
+            planets={ planets }
+            vehicles={ vehicles }
             display={ display } 
             favorites={ favorites }
             selected={ selected }
