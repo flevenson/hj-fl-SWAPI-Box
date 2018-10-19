@@ -41,7 +41,11 @@ ShallowWrapper {
         </aside>,
         <main>
           <CardContainer
+            addToFavorites={[Function]}
             display={Object {}}
+            favorited={false}
+            favorites={Array []}
+            isLoading={false}
             people={Object {}}
             planets={Object {}}
             selected=""
@@ -132,7 +136,11 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <CardContainer
+            addToFavorites={[Function]}
             display={Object {}}
+            favorited={false}
+            favorites={Array []}
+            isLoading={false}
             people={Object {}}
             planets={Object {}}
             selected=""
@@ -145,7 +153,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "addToFavorites": [Function],
             "display": Object {},
+            "favorited": false,
+            "favorites": Array [],
+            "isLoading": false,
             "people": Object {},
             "planets": Object {},
             "selected": "",
@@ -190,7 +202,11 @@ ShallowWrapper {
           </aside>,
           <main>
             <CardContainer
+              addToFavorites={[Function]}
               display={Object {}}
+              favorited={false}
+              favorites={Array []}
+              isLoading={false}
               people={Object {}}
               planets={Object {}}
               selected=""
@@ -281,7 +297,11 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <CardContainer
+              addToFavorites={[Function]}
               display={Object {}}
+              favorited={false}
+              favorites={Array []}
+              isLoading={false}
               people={Object {}}
               planets={Object {}}
               selected=""
@@ -294,7 +314,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "addToFavorites": [Function],
               "display": Object {},
+              "favorited": false,
+              "favorites": Array [],
+              "isLoading": false,
               "people": Object {},
               "planets": Object {},
               "selected": "",

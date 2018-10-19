@@ -8,7 +8,7 @@ const Card = ({ data, selected, addToFavorites, id }) => {
     let dataKeys = Object.keys(data);
     let filteredDataKeys = dataKeys.filter(data => data !== data.Favorited)
     let cardCharacteristics = filteredDataKeys.map(key => (
-      <p>{key.toUpperCase()}: {data[key]}</p>
+      <p key={key}>{key.toUpperCase()}: {data[key]}</p>
     ))
 
 		if (data) {
