@@ -81,26 +81,48 @@ class App extends Component {
   }
 
   addToFavorites = (cardName, id, selectedState) => {
-    let { display, favorites, selected,  } = this.state
+    let { display, favorites, selected  } = this.state
     let keys = Object.keys(display);
-    // make an array of just the names of the cards in favorites
+
     let favoritesNames = favorites.map(favorite => favorite.Name)
-    // find the card in display that has the correct name (the name of the button)
+
     let cardToChange = keys.find(card => display[card].Name === cardName)
-    // changing the property on that card in display to favorited or not favorited
-    display[cardToChange].Favorited = !display[cardToChange].Favorited
+    console.log(cardToChange)
+    this.changeFavorited(selectedState, cardToChange);
+
     if (favoritesNames.includes(cardName)) {
-      // if card is already favorited, filter it out and make favorites all excluding it
+
       let filteredFavorites = favorites.filter(favorite => favorite.Name !== cardName)
-      this.setState({ favorites: filteredFavorites, selectedState: this.state[selectedState]})
+      this.setState({ favorites: filteredFavorites, selectedState: this.state[selectedState], display: this.state[selectedState]})
       localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
       localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
+      localStorage.setItem(([selectedState]), JSON.stringify(this.state[selectedState]))
     } else {
-      // if card is not favorited find the card in display and push it to the favorites array
+
       let cardToFavorite = keys.find(key => display[key].Name === cardName)
       favorites.push(display[cardToFavorite])
-      this.setState({ favorites: favorites, selectedState: this.state[selectedState] })
+      this.setState({ favorites: favorites, selectedState: this.state[selectedState], display: this.state[selectedState] })
       localStorage.setItem(('favorites'), JSON.stringify(favorites))
+      localStorage.setItem(('display'), JSON.stringify(this.state[selectedState]))
+      localStorage.setItem(([selectedState]), JSON.stringify(this.state[selectedState]))
+
+    }
+  }
+
+  changeFavorited = (selected, cardName) => {
+    let {people, planets, vehicles } = this.state
+    switch(selected){
+      case 'people':
+      people[cardName].Favorited = !people[cardName].Favorited
+      this.setState({display: this.state.people});
+      case 'planets':
+      planets[cardName].Favorited = !planets[cardName].Favorited
+      this.setState({display: this.state.planets});
+      case 'vehicles':
+      vehicles[cardName].Favorited = !vehicles[cardName].Favorited
+      this.setState({display: this.state.vehicles});
+;
+
     }
   }
 
