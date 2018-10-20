@@ -4,7 +4,7 @@ export const fetchData = async (buttonName) => {
     if (!response.ok) {
       throw Error(response.statusText)
     } else {
-  	const data = await response.json();
+    const data = await response.json();
     const results = {...data.results};
     switch (buttonName) {
         case 'people':
@@ -43,7 +43,6 @@ export const fetchData = async (buttonName) => {
     const homeworldAPI = person.homeworld;
     const homeworldResponse = await fetch(homeworldAPI);
     const homeworldData = await homeworldResponse.json();
-
     return homeworldData.name
   }
 

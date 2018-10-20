@@ -14,7 +14,6 @@ class App extends Component {
       vehicles: {},
       filmText: {},
       selected: '',
-      display: {},
       favorites: [],
       isLoading: false
     }
@@ -28,7 +27,7 @@ class App extends Component {
     this.setState({
       filmText: filmText
     })
-    if (localStorage.display && localStorage.selected) {
+    if (localStorage.selected) {
       this.getFromLocalStorage()
     }
   }
@@ -41,19 +40,17 @@ class App extends Component {
 
       await this.setState({ [buttonName]: await Cleaner.fetchData(buttonName) })
     } 
-      await this.setState({isLoading: false,
-                            display: this.state[buttonName]})
+      await this.setState({isLoading: false})
       await this.addToLocalStorage(buttonName)
     }
 
   addToLocalStorage(buttonName) {
-    localStorage.setItem(('display'), JSON.stringify(this.state.display))
+    localStorage.setItem(([buttonName]), JSON.stringify(this.state[buttonName]))
     localStorage.setItem(('selected'), JSON.stringify(this.state.selected))
     localStorage.setItem(('favorites'), JSON.stringify(this.state.favorites))
   }
 
   getFromLocalStorage = async () => {
-    const storedDisplay = await JSON.parse(await localStorage.getItem('display'));
     const storedState = await JSON.parse(await localStorage.getItem('selected'));
     if(localStorage.favorites) {
     const storedFavorites = await JSON.parse(await localStorage.getItem('favorites'));
@@ -71,7 +68,7 @@ class App extends Component {
       const storedVehicles = await JSON.parse(await localStorage.getItem('vehicles'));
       this.setState({vehicles: storedVehicles})
     }
-    await this.setState({ display: storedDisplay, selected: storedState})
+    await this.setState({ selected: storedState})
   }
 
   handleNavClick = (event) => {
@@ -81,29 +78,25 @@ class App extends Component {
   }
 
   addToFavorites = (cardName, id, selectedState) => {
-    let { display, favorites, selected  } = this.state
-    let keys = Object.keys(display);
-
+    let { favorites, selected  } = this.state
+    let keys = Object.keys(this.state[selectedState]);
     let favoritesNames = favorites.map(favorite => favorite.Name)
-
-    let cardToChange = keys.find(card => display[card].Name === cardName)
-    console.log(cardToChange)
+    console.log(keys)
+    let cardToChange = keys.find(card => this.state[selectedState][card].Name === id)
     this.changeFavorited(selectedState, cardToChange);
 
     if (favoritesNames.includes(cardName)) {
 
       let filteredFavorites = favorites.filter(favorite => favorite.Name !== cardName)
-      this.setState({ favorites: filteredFavorites, selectedState: this.state[selectedState], display: this.state[selectedState]})
+      this.setState({ favorites: filteredFavorites, selectedState: this.state[selectedState]})
       localStorage.setItem(('favorites'), JSON.stringify(filteredFavorites))
-      localStorage.setItem(('display'), JSON.stringify(filteredFavorites))
       localStorage.setItem(([selectedState]), JSON.stringify(this.state[selectedState]))
     } else {
 
-      let cardToFavorite = keys.find(key => display[key].Name === cardName)
-      favorites.push(display[cardToFavorite])
-      this.setState({ favorites: favorites, selectedState: this.state[selectedState], display: this.state[selectedState] })
+      let cardToFavorite = keys.find(key => this.state[selectedState][key].Name === id)
+      favorites.push(this.state[selectedState][cardToFavorite])
+      this.setState({ favorites: favorites, selectedState: this.state[selectedState]})
       localStorage.setItem(('favorites'), JSON.stringify(favorites))
-      localStorage.setItem(('display'), JSON.stringify(this.state[selectedState]))
       localStorage.setItem(([selectedState]), JSON.stringify(this.state[selectedState]))
 
     }
@@ -113,15 +106,20 @@ class App extends Component {
     let {people, planets, vehicles } = this.state
     switch(selected){
       case 'people':
-      people[cardName].Favorited = !people[cardName].Favorited
-      this.setState({display: this.state.people});
+      people[cardName].Favorited = !people[cardName].Favorited;
+      this.setState({people: this.state.people});
+      return;
       case 'planets':
-      planets[cardName].Favorited = !planets[cardName].Favorited
-      this.setState({display: this.state.planets});
+      planets[cardName].Favorited = !planets[cardName].Favorited;
+      this.setState({planets: this.state.planets});
+      return;
       case 'vehicles':
-      vehicles[cardName].Favorited = !vehicles[cardName].Favorited
-      this.setState({display: this.state.vehicles});
-;
+      vehicles[cardName].Favorited = !vehicles[cardName].Favorited;
+      this.setState({vehicles: this.state.vehicles});
+      return;
+      // case 'favorites':
+      // favorites[cardName].Favorited = !favorites[cardName].Favorited
+
 
     }
   }
@@ -140,7 +138,7 @@ class App extends Component {
   }
 
   render() {
-    const { people, planets, vehicles, selected, filmText, display, favorites, isLoading } = this.state;
+    const { people, planets, vehicles, selected, filmText, favorites, isLoading } = this.state;
 
     return (
       <div className="app">
@@ -162,7 +160,6 @@ class App extends Component {
             people={ people }
             planets={ planets }
             vehicles={ vehicles }
-            display={ display } 
             favorites={ favorites }
             selected={ selected }
             addToFavorites={ this.addToFavorites }
