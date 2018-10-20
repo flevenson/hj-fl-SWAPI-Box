@@ -4,7 +4,7 @@ import './NavBar.css'
 import { Route, NavLink } from 'react-router-dom'
 
 
-const NavBar = ({ selected, handleNavClick }) => {
+const NavBar = ({ selected, handleNavClick, favorites}) => {
 
 	 return (
     <div className="nav-bar-div">
@@ -12,29 +12,25 @@ const NavBar = ({ selected, handleNavClick }) => {
       	className={selected === 'people' ? 'selected' : 'people'} 
       	name='people' 
       	onClick={handleNavClick}>
-      	 People
-        <NavLink to='/people'></NavLink>
+        <NavLink to='/people' name='people'>People</NavLink>
       </button>
       <button 
       	className={selected === 'planets' ? 'selected' : 'planets'} 
       	name='planets' 
       	onClick={handleNavClick}>
-      	Planets
-        <NavLink to='/planets'></NavLink>
+        <NavLink to='/planets' name='planets'>Planets</NavLink>
       </button>
       <button 
       	className={selected === 'vehicles' ? 'selected' : 'vehicles'} 
       	name='vehicles' 
       	onClick={handleNavClick}>
-      	Vehicles
-        <NavLink to='/vehicles'></NavLink>
+        <NavLink to='/vehicles' name='vehicles'>Vehicles</NavLink>
       </button>
       <button 
       	className={selected === 'favorites' ? 'selected' : 'favorites'}
       	name='favorites'
         onClick={handleNavClick}>
-      	Favorites
-        <NavLink to='/favorites'></NavLink>
+        <NavLink to='/favorites' name='favorites'>Favorites {favorites.length}</NavLink>
       </button>
     </div>
   )

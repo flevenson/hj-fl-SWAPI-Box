@@ -67,7 +67,8 @@ const CardContainer = ({ people, planets, vehicles, selected, favorites, addToFa
       <div>
         Welcome To SWAPI BOX
       </div>
-  )} else if (isLoading) {
+  )} else
+   if (isLoading) {
       return (
         <div>loading, please wait..</div>
     )

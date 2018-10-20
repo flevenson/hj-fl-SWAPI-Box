@@ -168,6 +168,7 @@ class App extends Component {
             getData={ this.getData } 
             selected={ selected } 
             handleNavClick={ this.handleNavClick }
+            favorites={favorites}
           />
         </header>
         <aside className="app-aside">
@@ -176,43 +177,33 @@ class App extends Component {
           />
         </aside>
         <main>
-          {/*<CardContainer 
-            people={ people }
-            planets={ planets }
-            vehicles={ vehicles }
-            favorites={ favorites }
-            selected={ selected }
-            addToFavorites={ this.addToFavorites }
-            favorited={ false }
-            isLoading={ isLoading }
-          />*/}
-          <Route exact path='/people' render={(people, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+          <Route exact path='/people' render={() => <CardContainer  
             people={ people }
             favorites={ favorites }
-            selected={ 'people' }
+            selected='people'
             addToFavorites={ this.addToFavorites }
             favorited={ false }
             isLoading={ isLoading }/>} />
-          <Route exact path='/planets' render={(planets, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+          <Route exact path='/planets' render={() => <CardContainer  
             planets={ planets }
             favorites={ favorites }
-            selected={ 'planets' }
+            selected='planets'
             addToFavorites={ this.addToFavorites }
             favorited={ false }
             isLoading={ isLoading }/>} />          
-          <Route exact path='/vehicles' render={(vehicles, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+          <Route exact path='/vehicles' render={() => <CardContainer  
             vehicles={ vehicles }
             favorites={ favorites }
-            selected={ 'vehicles' }
+            selected='vehicles'
             addToFavorites={ this.addToFavorites }
             favorited={ false }
             isLoading={ isLoading }/>} />
-          <Route exact path='/favorites' render={(people, planets, vehicles, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+          <Route exact path='/favorites' render={() => <CardContainer  
             people={ people }
             planets={ planets }
             vehicles= { vehicles } 
             favorites={ favorites }
-            selected={ 'favorites' }
+            selected='favorites'
             addToFavorites={ this.addToFavorites }
             favorited={ false }
             isLoading={ isLoading }/>} />
