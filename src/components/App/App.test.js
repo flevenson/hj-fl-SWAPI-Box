@@ -17,15 +17,16 @@ describe('App', () => {
 	})
 
 	it('should call handleNavClick with the right params', () => {
-	let	expected = {
-		  type: 'click',
-		  target: { getAttribute: jest.fn() }
-		}
+		let	expected = {
+			  type: 'click',
+			  target: { getAttribute: jest.fn() }
+			}
 
+			mountedWrapper.find('.people').simulate('click')
+			expect(mountedWrapper.instance().handleNavClick).toHaveBeenCalledWith(expected)
+		})
 
-		mountedWrapper.find('.people').simulate('click')
-		expect(mountedWrapper.instance().handleNavClick).toHaveBeenCalledWith(expected)
-	})
-
-	it('should update the state of display when ')
+	// it('should update the state of display when getData is called', () => {
+	// 	let 
+	// })
 })
