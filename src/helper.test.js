@@ -88,21 +88,19 @@ describe('getHomeworld', async () => {
 	describe('getResidents', async () => {
 		let mockResident;
 		let mockResults;
+		let mockPlanet;
 
 		beforeEach(() => {
-			mockResident = {
-				[
+			mockResident = [
 		        "https://swapi.co/api/people/1/",
 		        "https://swapi.co/api/people/2/",
 		        "https://swapi.co/api/people/4/",
 		        "https://swapi.co/api/people/5/",
 		        "https://swapi.co/api/people/6/",
 		        "https://swapi.co/api/people/7/"
-		        ]
-			}
+		    ]
 
-			mockResults = {
-				[
+			mockResults = [
 				'Luke',
 				'Yoda',
 				'Laya',
@@ -110,8 +108,12 @@ describe('getHomeworld', async () => {
 				'Annikan',
 				'DarthVader',
 				'R2D2'
-				]
+			]
+
+			mockPlanet = {
+				residents: mockResident
 			}
+			
 		})
 
 		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -130,7 +132,7 @@ describe('getHomeworld', async () => {
 		        "https://swapi.co/api/people/6/",
 		        "https://swapi.co/api/people/7/"
 		        ];
-			await Cleaner.getResidents(mockResident)
+			await Cleaner.getResidents(mockPlanet)
 			expect(window.fetch).toHaveBeenCalledWith(expected)
 		})
 
