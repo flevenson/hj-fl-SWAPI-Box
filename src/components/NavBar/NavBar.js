@@ -39,7 +39,8 @@ const NavBar = ({ selected, handleNavClick, favorites}) => {
 
 NavBar.propTypes = {
 	selected: PropTypes.string.isRequired,
-	handleNavClick: PropTypes.func.isRequired
+	handleNavClick: PropTypes.func.isRequired,
+  favorites: PropTypes.array.isRequired
 }
 
 export default NavBar

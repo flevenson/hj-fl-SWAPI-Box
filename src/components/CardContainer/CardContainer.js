@@ -82,7 +82,14 @@ const CardContainer = ({ people, planets, vehicles, selected, favorites, addToFa
 }
 
 CardContainer.propTypes = {
-  selected: PropTypes.string.isRequired
+  people: PropTypes.object,
+  planets: PropTypes.object,
+  vehicles: PropTypes.object,
+  favorites: PropTypes.array.isRequired,
+  selected: PropTypes.string.isRequired,
+  addToFavorites: PropTypes.func.isRequired,
+  favorited: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired
 }; 
 
 export default CardContainer;

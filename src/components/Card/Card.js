@@ -37,8 +37,10 @@ const Card = ({ data, selected, addToFavorites, id }) => {
    }
 
 Card.propTypes = {
-	data: PropTypes.array.isRequired,
-	selected: PropTypes.string.isRequired
+	data: PropTypes.array,
+	selected: PropTypes.string.isRequired,
+  addToFavorites: PropTypes.func,
+  id: PropTypes.string.isRequired
 }
 
 export default Card; 
