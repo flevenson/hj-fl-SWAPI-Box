@@ -4,6 +4,7 @@ import NavBar from '../NavBar/NavBar.js';
 import SideText from '../SideText/SideText.js';
 import CardContainer from '../CardContainer/CardContainer.js';
 import * as Cleaner from '../../helper.js';
+import { Route, NavLink } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -39,7 +40,10 @@ class App extends Component {
     if (buttonName !== 'favorites' && !Object.keys(this.state[buttonName]).length) {
 
       await this.setState({ [buttonName]: await Cleaner.fetchData(buttonName) })
-    } 
+    } else {
+      let storedData = await JSON.parse( await localStorage.getItem(buttonName))
+      await this.setState({[buttonName]: storedData})
+    }
       await this.setState({isLoading: false})
       await this.addToLocalStorage(buttonName)
     }
@@ -72,7 +76,6 @@ class App extends Component {
   }
 
   handleNavClick = (event) => {
-    console.log(event)
     let navButtonName = event.target.getAttribute('name')
     this.getData(navButtonName)
   }
@@ -94,7 +97,7 @@ class App extends Component {
     } else {
 
       let cardToFavorite = keys.find(key => this.state[selectedState][key].Name === id)
-      favorites.push(this.state[selectedState][cardToFavorite])
+      let newFavorites = favorites.push(this.state[selectedState][cardToFavorite])
       this.setState({ favorites: favorites, selectedState: this.state[selectedState]})
       localStorage.setItem(('favorites'), JSON.stringify(favorites))
       localStorage.setItem(([selectedState]), JSON.stringify(this.state[selectedState]))
@@ -103,7 +106,7 @@ class App extends Component {
   }
 
   changeFavorited = (selected, cardName) => {
-    let {people, planets, vehicles } = this.state
+    let {people, planets, vehicles, favorites } = this.state
     switch(selected){
       case 'people':
       people[cardName].Favorited = !people[cardName].Favorited;
@@ -117,11 +120,28 @@ class App extends Component {
       vehicles[cardName].Favorited = !vehicles[cardName].Favorited;
       this.setState({vehicles: this.state.vehicles});
       return;
-      // case 'favorites':
-      // favorites[cardName].Favorited = !favorites[cardName].Favorited
+      case 'favorites':
+      let cardToChange = favorites.find(favorite => favorite.Name === favorites[cardName].Name)
+      console.log(cardToChange)
+      if (cardToChange.Homeworld){
+      people[cardName].Favorited = !people[cardName].Favorited;
+      this.setState({people: this.state.people});
+      localStorage.setItem(('people'), JSON.stringify(this.state.people))
 
+      } else if (cardToChange.Climate) {
+      planets[cardName].Favorited = !planets[cardName].Favorited;
+      this.setState({planets: this.state.planets});
+      localStorage.setItem(('planets'), JSON.stringify(this.state.planets))
+
+      } else if (cardToChange.Model) {
+      vehicles[cardName].Favorited = !vehicles[cardName].Favorited;
+      this.setState({vehicles: this.state.vehicles});
+      localStorage.setItem(('vehicles'), JSON.stringify(this.state.vehicles))
+      }
+      return
 
     }
+    localStorage.setItem(([selected]), JSON.stringify(this.state[selected]))
   }
 
   async formatFilmText(data) {
@@ -156,7 +176,7 @@ class App extends Component {
           />
         </aside>
         <main>
-          <CardContainer 
+          {/*<CardContainer 
             people={ people }
             planets={ planets }
             vehicles={ vehicles }
@@ -165,7 +185,37 @@ class App extends Component {
             addToFavorites={ this.addToFavorites }
             favorited={ false }
             isLoading={ isLoading }
-          />
+          />*/}
+          <Route exact path='/people' render={(people, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+            people={ people }
+            favorites={ favorites }
+            selected={ 'people' }
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
+            isLoading={ isLoading }/>} />
+          <Route exact path='/planets' render={(planets, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+            planets={ planets }
+            favorites={ favorites }
+            selected={ 'planets' }
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
+            isLoading={ isLoading }/>} />          
+          <Route exact path='/vehicles' render={(vehicles, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+            vehicles={ vehicles }
+            favorites={ favorites }
+            selected={ 'vehicles' }
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
+            isLoading={ isLoading }/>} />
+          <Route exact path='/favorites' render={(people, planets, vehicles, favorites, selected, addToFavorites, favorited, isLoading) => <CardContainer  
+            people={ people }
+            planets={ planets }
+            vehicles= { vehicles } 
+            favorites={ favorites }
+            selected={ 'favorites' }
+            addToFavorites={ this.addToFavorites }
+            favorited={ false }
+            isLoading={ isLoading }/>} />
         </main>
       </div>
     );
