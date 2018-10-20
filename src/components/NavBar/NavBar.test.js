@@ -35,17 +35,23 @@ describe('NavBar', () => {
 	})
 
 	it('should display people when selected', () => {
-		wrapper = shallow(<NavBar selected={'people'} />)
+		wrapper = shallow(<NavBar selected={'people'} 
+								  handleNavClick={mockFunction}
+						  />)
 		expect(wrapper.find('.selected').length).toEqual(1)
 	})
 
 	it('should display planets when selected', () => {
-		wrapper = shallow(<NavBar selected={'planets'} />)
+		wrapper = shallow(<NavBar selected={'planets'} 
+								  handleNavClick={mockFunction} 
+						  />)
 		expect(wrapper.find('.selected').length).toEqual(1)
 	})
 
 	it('should display vehicles when selected', () => {
-		wrapper = shallow(<NavBar selected={'vehicles'} />)
+		wrapper = shallow(<NavBar selected={'vehicles'} 
+								  handleNavClick={mockFunction}
+						  />)
 		expect(wrapper.find('.selected').length).toEqual(1)
 	})
 

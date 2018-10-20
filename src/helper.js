@@ -39,7 +39,7 @@ export const fetchData = async (buttonName) => {
     return resolvedPeople
   }
 
-  const getHomeworld = async (person) => {
+  export const getHomeworld = async (person) => {
     const homeworldAPI = person.homeworld;
     const homeworldResponse = await fetch(homeworldAPI);
     const homeworldData = await homeworldResponse.json();
@@ -47,7 +47,7 @@ export const fetchData = async (buttonName) => {
     return homeworldData.name
   }
 
-  const getPopulation = async (person) => {
+  export const getPopulation = async (person) => {
     const homeworldAPI = person.homeworld;
     const homeworldResponse = await fetch(homeworldAPI);
     const homeworldData = await homeworldResponse.json();
@@ -55,7 +55,7 @@ export const fetchData = async (buttonName) => {
     return homeworldData.population
   }
 
-  const getSpecies = async (person) => {
+  export const getSpecies = async (person) => {
     const speciesAPI = person.species;
     const speciesResponse = await fetch(speciesAPI);
     const speciesData = await speciesResponse.json();
@@ -63,7 +63,7 @@ export const fetchData = async (buttonName) => {
     return speciesData.name
   }
 
-  const getPlanets = async (data ) => {
+  export const getPlanets = async (data ) => {
     const planetKeys = await Object.keys(data);
     const newPlanets = planetKeys.map( async (planet) => {
       planet = {
@@ -79,7 +79,7 @@ export const fetchData = async (buttonName) => {
     return await Promise.all(newPlanets)
   }
 
-  const getResidents = async (planet) => {
+  export const getResidents = async (planet) => {
     if (!planet.residents.length) {
       return 'unknown'
     } else {
@@ -92,7 +92,7 @@ export const fetchData = async (buttonName) => {
   } 
 }
 
-  const getVehicles = async (data) => {
+  export const getVehicles = async (data) => {
     const vehicleKeys = await Object.keys(data);
     const newVehicles = vehicleKeys.map ( async (vehicle) => {
       vehicle = {

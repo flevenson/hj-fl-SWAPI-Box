@@ -43,8 +43,9 @@ ShallowWrapper {
           Vehicles
         </button>,
         <button
-          className=""
+          className="favorites"
           name="favorites"
+          onClick={[MockFunction]}
         >
           Favorites
         </button>,
@@ -101,8 +102,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Favorites",
-          "className": "",
+          "className": "favorites",
           "name": "favorites",
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "Favorites",
@@ -140,8 +142,9 @@ ShallowWrapper {
             Vehicles
           </button>,
           <button
-            className=""
+            className="favorites"
             name="favorites"
+            onClick={[MockFunction]}
           >
             Favorites
           </button>,
@@ -198,8 +201,9 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Favorites",
-            "className": "",
+            "className": "favorites",
             "name": "favorites",
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": "Favorites",
