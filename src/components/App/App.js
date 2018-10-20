@@ -57,8 +57,8 @@ class App extends Component {
   getFromLocalStorage = async () => {
     const storedState = await JSON.parse(await localStorage.getItem('selected'));
     if(localStorage.favorites) {
-    const storedFavorites = await JSON.parse(await localStorage.getItem('favorites'));
-    this.setState({favorites: storedFavorites})
+      const storedFavorites = await JSON.parse(await localStorage.getItem('favorites'));
+      this.setState({favorites: storedFavorites})
     } 
     if(localStorage.people) {
       const storedPeople = await JSON.parse(await localStorage.getItem('people'));
@@ -84,7 +84,6 @@ class App extends Component {
     let { favorites, selected  } = this.state
     let keys = Object.keys(this.state[selectedState]);
     let favoritesNames = favorites.map(favorite => favorite.Name)
-    console.log(keys)
     let cardToChange = keys.find(card => this.state[selectedState][card].Name === id)
     this.changeFavorited(selectedState, cardToChange);
 
@@ -109,26 +108,24 @@ class App extends Component {
     let {people, planets, vehicles, favorites } = this.state
     switch(selected){
       case 'people':
-      people[cardName].Favorited = !people[cardName].Favorited;
-      this.setState({people: this.state.people});
-      return;
+        people[cardName].Favorited = !people[cardName].Favorited;
+        this.setState({people: this.state.people});
+        return;
       case 'planets':
-      planets[cardName].Favorited = !planets[cardName].Favorited;
-      this.setState({planets: this.state.planets});
-      return;
+        planets[cardName].Favorited = !planets[cardName].Favorited;
+        this.setState({planets: this.state.planets});
+        return;
       case 'vehicles':
-      vehicles[cardName].Favorited = !vehicles[cardName].Favorited;
-      this.setState({vehicles: this.state.vehicles});
-      return;
+        vehicles[cardName].Favorited = !vehicles[cardName].Favorited;
+        this.setState({vehicles: this.state.vehicles});
+        return;
       case 'favorites':
-      let cardToChange = favorites.find(favorite => favorite.Name === favorites[cardName].Name)
-      console.log(cardToChange)
-      if (cardToChange.Homeworld){
-      people[cardName].Favorited = !people[cardName].Favorited;
-      this.setState({people: this.state.people});
-      localStorage.setItem(('people'), JSON.stringify(this.state.people))
-
-      } else if (cardToChange.Climate) {
+        let cardToChange = favorites.find(favorite => favorite.Name === favorites[cardName].Name)
+        if (cardToChange.Homeworld){
+          people[cardName].Favorited = !people[cardName].Favorited;
+          this.setState({people: this.state.people});
+          localStorage.setItem(('people'), JSON.stringify(this.state.people))
+        } else if (cardToChange.Climate) {
       planets[cardName].Favorited = !planets[cardName].Favorited;
       this.setState({planets: this.state.planets});
       localStorage.setItem(('planets'), JSON.stringify(this.state.planets))
