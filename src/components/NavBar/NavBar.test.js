@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 
 import NavBar from './NavBar.js';
 
+
 describe('NavBar', () => {
 	let wrapper;
 	let mockFunction;

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
+import { memoryRouter } from 'react-router-dom';
 
 describe('App', () => {
 	let wrapper;
