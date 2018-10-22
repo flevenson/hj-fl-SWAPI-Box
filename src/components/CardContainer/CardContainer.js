@@ -12,7 +12,6 @@ const CardContainer = ({ people, planets, vehicles, selected, favorites, addToFa
    switch(selected) {
     case 'people': 
       return Object.keys(people).map(element => { 
-        console.log(`${selected}`)
         return <Card
           data={people[element]}
           key={element}
@@ -24,7 +23,6 @@ const CardContainer = ({ people, planets, vehicles, selected, favorites, addToFa
       })
     case 'planets': 
       return Object.keys(planets).map(element => { 
-        console.log(`${selected}`)
         return <Card
           data={planets[element]}
           key={element}
@@ -36,7 +34,6 @@ const CardContainer = ({ people, planets, vehicles, selected, favorites, addToFa
       })
     case 'vehicles': 
       return Object.keys(vehicles).map(element => { 
-        console.log(`${selected}`)
         return <Card
           data={vehicles[element]}
           key={element}
