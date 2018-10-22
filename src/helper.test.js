@@ -91,24 +91,13 @@ describe('getHomeworld', async () => {
 		let mockPlanet;
 
 		beforeEach(() => {
-			mockResident = [
-		        "https://swapi.co/api/people/1/",
-		        "https://swapi.co/api/people/2/",
-		        "https://swapi.co/api/people/4/",
-		        "https://swapi.co/api/people/5/",
-		        "https://swapi.co/api/people/6/",
-		        "https://swapi.co/api/people/7/"
-		    ]
+			mockResident = ["https://swapi.co/api/people/1/",
+			"https://swapi.co/api/people/2/"];
+		    
 
-			mockResults = [
-				'Luke',
-				'Yoda',
-				'Laya',
-				'Obiwan',
-				'Annikan',
-				'DarthVader',
-				'R2D2'
-			]
+			mockResults = ['Luke',
+			'R2D2'];
+				
 
 			mockPlanet = {
 				residents: mockResident
@@ -124,14 +113,9 @@ describe('getHomeworld', async () => {
 		}))
 
 		it('calls fetch with the correct params', async () => {
-			const expected = [
-		        "https://swapi.co/api/people/1/",
-		        "https://swapi.co/api/people/2/",
-		        "https://swapi.co/api/people/4/",
-		        "https://swapi.co/api/people/5/",
-		        "https://swapi.co/api/people/6/",
-		        "https://swapi.co/api/people/7/"
-		        ];
+			const expected = "https://swapi.co/api/people/1/";
+			
+		        
 			await Cleaner.getResidents(mockPlanet)
 			expect(window.fetch).toHaveBeenCalledWith(expected)
 		})

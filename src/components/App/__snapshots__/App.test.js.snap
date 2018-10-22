@@ -27,6 +27,7 @@ ShallowWrapper {
             SWAPI Box
           </h1>
           <NavBar
+            favorites={Array []}
             getData={[Function]}
             handleNavClick={[Function]}
             selected=""
@@ -40,16 +41,25 @@ ShallowWrapper {
           />
         </aside>,
         <main>
-          <CardContainer
-            addToFavorites={[Function]}
-            display={Object {}}
-            favorited={false}
-            favorites={Array []}
-            isLoading={false}
-            people={Object {}}
-            planets={Object {}}
-            selected=""
-            vehicles={Object {}}
+          <Route
+            exact={true}
+            path="/people"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/planets"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/vehicles"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/favorites"
+            render={[Function]}
           />
         </main>,
       ],
@@ -69,6 +79,7 @@ ShallowWrapper {
               SWAPI Box
             </h1>,
             <NavBar
+              favorites={Array []}
               getData={[Function]}
               handleNavClick={[Function]}
               selected=""
@@ -95,6 +106,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "favorites": Array [],
               "getData": [Function],
               "handleNavClick": [Function],
               "selected": "",
@@ -135,38 +147,84 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <CardContainer
-            addToFavorites={[Function]}
-            display={Object {}}
-            favorited={false}
-            favorites={Array []}
-            isLoading={false}
-            people={Object {}}
-            planets={Object {}}
-            selected=""
-            vehicles={Object {}}
-          />,
+          "children": Array [
+            <Route
+              exact={true}
+              path="/people"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/planets"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/vehicles"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/favorites"
+              render={[Function]}
+            />,
+          ],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "addToFavorites": [Function],
-            "display": Object {},
-            "favorited": false,
-            "favorites": Array [],
-            "isLoading": false,
-            "people": Object {},
-            "planets": Object {},
-            "selected": "",
-            "vehicles": Object {},
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/people",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/planets",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/vehicles",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/favorites",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": "main",
       },
     ],
@@ -188,6 +246,7 @@ ShallowWrapper {
               SWAPI Box
             </h1>
             <NavBar
+              favorites={Array []}
               getData={[Function]}
               handleNavClick={[Function]}
               selected=""
@@ -201,16 +260,25 @@ ShallowWrapper {
             />
           </aside>,
           <main>
-            <CardContainer
-              addToFavorites={[Function]}
-              display={Object {}}
-              favorited={false}
-              favorites={Array []}
-              isLoading={false}
-              people={Object {}}
-              planets={Object {}}
-              selected=""
-              vehicles={Object {}}
+            <Route
+              exact={true}
+              path="/people"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/planets"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/vehicles"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/favorites"
+              render={[Function]}
             />
           </main>,
         ],
@@ -230,6 +298,7 @@ ShallowWrapper {
                 SWAPI Box
               </h1>,
               <NavBar
+                favorites={Array []}
                 getData={[Function]}
                 handleNavClick={[Function]}
                 selected=""
@@ -256,6 +325,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
+                "favorites": Array [],
                 "getData": [Function],
                 "handleNavClick": [Function],
                 "selected": "",
@@ -296,38 +366,84 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <CardContainer
-              addToFavorites={[Function]}
-              display={Object {}}
-              favorited={false}
-              favorites={Array []}
-              isLoading={false}
-              people={Object {}}
-              planets={Object {}}
-              selected=""
-              vehicles={Object {}}
-            />,
+            "children": Array [
+              <Route
+                exact={true}
+                path="/people"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/planets"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/vehicles"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/favorites"
+                render={[Function]}
+              />,
+            ],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "addToFavorites": [Function],
-              "display": Object {},
-              "favorited": false,
-              "favorites": Array [],
-              "isLoading": false,
-              "people": Object {},
-              "planets": Object {},
-              "selected": "",
-              "vehicles": Object {},
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/people",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/planets",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/vehicles",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/favorites",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": "main",
         },
       ],
