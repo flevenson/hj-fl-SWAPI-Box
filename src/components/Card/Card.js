@@ -16,8 +16,9 @@ const Card = ({ data, selected, addToFavorites, id }) => {
 	    <div className='card'>
         { cardCharacteristics  }
         <button 
+          className='favorite-button'
         	name={data.Name} 
-        	onClick={() => addToFavorites(data.Name, id, selected)
+        	onClick={() => addToFavorites(id, selected)
         }>	      
 	        <img   
         	  className='favorite-button'

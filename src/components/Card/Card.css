@@ -19,11 +19,12 @@
 	cursor: pointer;
 	height: 20px;
 	width: 20px;
+  outline: none;
 }
 
 .favorite-button-favorited {
   cursor: pointer;
   height: 20px;
   width: 20px;
-
+  outline: none;
 }
